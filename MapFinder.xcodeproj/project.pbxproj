@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		4959A2932496DEA400EA4EB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2912496DEA400EA4EB1 /* Main.storyboard */; };
 		4959A2952496DEA500EA4EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2942496DEA500EA4EB1 /* Assets.xcassets */; };
 		4959A2982496DEA500EA4EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2962496DEA500EA4EB1 /* LaunchScreen.storyboard */; };
+		4959A2A22497472500EA4EB1 /* ResultJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A12497472500EA4EB1 /* ResultJSON.swift */; };
 		52935C0D65AD917035951D80 /* Pods_MapFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		4959A2992496DEA500EA4EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4959A29F2496FB4E00EA4EB1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		4959A2A02496FB4E00EA4EB1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4959A2A12497472500EA4EB1 /* ResultJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultJSON.swift; sourceTree = "<group>"; };
 		63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapFinder.debug.xcconfig"; path = "Target Support Files/Pods-MapFinder/Pods-MapFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 				4959A2942496DEA500EA4EB1 /* Assets.xcassets */,
 				4959A2962496DEA500EA4EB1 /* LaunchScreen.storyboard */,
 				4959A2992496DEA500EA4EB1 /* Info.plist */,
+				4959A2A12497472500EA4EB1 /* ResultJSON.swift */,
 			);
 			path = MapFinder;
 			sourceTree = "<group>";
@@ -90,7 +93,6 @@
 				D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */,
 				0BC987CBC7FF4667DB129B55 /* Pods-MapFinder.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4959A2A22497472500EA4EB1 /* ResultJSON.swift in Sources */,
 				4959A2902496DEA400EA4EB1 /* ViewController.swift in Sources */,
 				4959A28C2496DEA400EA4EB1 /* AppDelegate.swift in Sources */,
 				4959A28E2496DEA400EA4EB1 /* SceneDelegate.swift in Sources */,

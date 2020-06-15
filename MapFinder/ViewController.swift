@@ -15,28 +15,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var dispMap: MKMapView!
     
+    var placeList:[(name:String, let:Float, lng:Float, category:String?)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         inputText.delegate = self
-        setup()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
         if let searchKey = textField.text{
-            print(searchKey)
-        
+//            print(searchKey)
+            
             let geocoder = CLGeocoder()
+            
+            let testKey = "東京駅"
         
-            geocoder.geocodeAddressString(searchKey, completionHandler: { (placemarks, error) in
+            geocoder.geocodeAddressString(testKey, completionHandler: { (placemarks, error) in
             
                 if let unwrapPlacemarks = placemarks{
                     if let firstPlacemark = unwrapPlacemarks.first{
                         if let location = firstPlacemark.location{
                             let coordinate = location.coordinate
                             print(coordinate)
+                            
+                            self.checkAround(loc: coordinate)
                             
                             let pin = MKPointAnnotation()
                             
@@ -55,13 +60,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func setup(){
+    func checkAround(loc:CLLocationCoordinate2D){
         let client = FoursquareAPIClient(clientId: "JN0UJMZ0JDVEPJ3B1N2BTHYDUBZ1LLOXC0ZVEEWZZL5UXLPD",
         clientSecret: "5MXF4GNXS3QZTNW0YSLQRHG5LWY2RWKA1SKHAAJDBS2OSJ3F")
         
+        let llString = String(loc.latitude)+","+String(loc.longitude)
+        
         let parameter: [String: String] = [
-            "ll": "35.702069,139.7753269", // 緯度経度
-            "limit": "1", // 一度に取得する件数
+            "ll": llString, // 緯度経度
+            "limit": "10", // 一度に取得する件数
         ];
         
         client.request(path: "venues/search", parameter: parameter) {
@@ -69,23 +76,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
             switch result {
 
-            case .success(let data):
-                // 成功
-                print(NSString(data:data, encoding:String.Encoding.utf8.rawValue)!)
+                case .success(let data):
+                    // 成功
+                    print(String(data:data, encoding:String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
+                    self.ParseJSON(data: data)
 
-            case .failure(.connectionError(let error)):
-                // 通信エラー
-                print(error)
+                case .failure(.connectionError(let error)):
+                    // 通信エラー
+                    print(error)
 
-            case .failure(.apiError(let error)):
-                // 通信はできたけどAPIエラー
-                print(error.errorType)   // e.g. endpoint_error
-                print(error.errorDetail) // e.g. The requested path does not exist.
-                
-            case .failure(.responseParseError(_)): break
+                case .failure(.apiError(let error)):
+                    // 通信はできたけどAPIエラー
+                    print(error.errorType)   // e.g. endpoint_error
+                    print(error.errorDetail) // e.g. The requested path does not exist.
+                    
+                case .failure(.responseParseError(_)): break
     
             }
         }
+        
+    }
+    
+    func ParseJSON(data:Data){
+        
+        do {
+            let decoder = JSONDecoder()
+            let json = try decoder.decode(ResultJson.self, from: data)
+            
+            let venues = json.response.venues
+            
+            for venue in venues{
+                let place = (venue.name,venue.location.lat,venue.location.lng,venue.categories![0].name)
+                placeList.append(place)
+            }
+            
+            print(placeList)
+            
+        } catch  {
+            print("エラー")
+        }
+        
     }
 }
 
