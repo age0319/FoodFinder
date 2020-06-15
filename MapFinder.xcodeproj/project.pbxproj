@@ -13,9 +13,11 @@
 		4959A2932496DEA400EA4EB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2912496DEA400EA4EB1 /* Main.storyboard */; };
 		4959A2952496DEA500EA4EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2942496DEA500EA4EB1 /* Assets.xcassets */; };
 		4959A2982496DEA500EA4EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2962496DEA500EA4EB1 /* LaunchScreen.storyboard */; };
+		52935C0D65AD917035951D80 /* Pods_MapFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BC987CBC7FF4667DB129B55 /* Pods-MapFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapFinder.release.xcconfig"; path = "Target Support Files/Pods-MapFinder/Pods-MapFinder.release.xcconfig"; sourceTree = "<group>"; };
 		4959A2882496DEA400EA4EB1 /* MapFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4959A28B2496DEA400EA4EB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4959A28D2496DEA400EA4EB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,10 @@
 		4959A2942496DEA500EA4EB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4959A2972496DEA500EA4EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4959A2992496DEA500EA4EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4959A29F2496FB4E00EA4EB1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		4959A2A02496FB4E00EA4EB1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapFinder.debug.xcconfig"; path = "Target Support Files/Pods-MapFinder/Pods-MapFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52935C0D65AD917035951D80 /* Pods_MapFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				4959A28A2496DEA400EA4EB1 /* MapFinder */,
 				4959A2892496DEA400EA4EB1 /* Products */,
+				EB33FAF0818CA90B3B6816E1 /* Pods */,
+				50A9A550BF4CC1962BD1D207 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +76,24 @@
 			path = MapFinder;
 			sourceTree = "<group>";
 		};
+		50A9A550BF4CC1962BD1D207 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB33FAF0818CA90B3B6816E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */,
+				0BC987CBC7FF4667DB129B55 /* Pods-MapFinder.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4959A29C2496DEA500EA4EB1 /* Build configuration list for PBXNativeTarget "MapFinder" */;
 			buildPhases = (
+				41F6488883F29671D2FD3E2C /* [CP] Check Pods Manifest.lock */,
 				4959A2842496DEA400EA4EB1 /* Sources */,
 				4959A2852496DEA400EA4EB1 /* Frameworks */,
 				4959A2862496DEA400EA4EB1 /* Resources */,
+				E566DA6053AF2EF79C49AACD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,6 +138,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 4959A27F2496DEA400EA4EB1;
 			productRefGroup = 4959A2892496DEA400EA4EB1 /* Products */;
@@ -133,6 +163,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41F6488883F29671D2FD3E2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E566DA6053AF2EF79C49AACD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MapFinder/Pods-MapFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MapFinder/Pods-MapFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MapFinder/Pods-MapFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4959A2842496DEA400EA4EB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -151,6 +223,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4959A2922496DEA400EA4EB1 /* Base */,
+				4959A29F2496FB4E00EA4EB1 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -159,6 +232,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4959A2972496DEA500EA4EB1 /* Base */,
+				4959A2A02496FB4E00EA4EB1 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -170,6 +244,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -230,6 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -282,6 +358,7 @@
 		};
 		4959A29D2496DEA500EA4EB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +377,7 @@
 		};
 		4959A29E2496DEA500EA4EB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BC987CBC7FF4667DB129B55 /* Pods-MapFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
