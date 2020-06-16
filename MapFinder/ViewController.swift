@@ -36,7 +36,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         if var searchKey = textField.text{
-//            print(searchKey)
             
             let geocoder = CLGeocoder()
             
@@ -48,7 +47,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if let firstPlacemark = unwrapPlacemarks.first{
                         if let location = firstPlacemark.location{
                             let coordinate = location.coordinate
-                            print(coordinate)
                             
                             self.currentlocation = coordinate
                             
@@ -118,7 +116,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             for venue in self.venueList{
                 print(venue.name)
                 print(venue.lat,venue.lng)
-
+                
+                // 地図上のピンに名前と緯度経度をセットする。
                 let pin = MKPointAnnotation()
 
                 pin.coordinate = self.doubleToCoordinate(lat: venue.lat, lng: venue.lng)
@@ -151,4 +150,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
 }
-
