@@ -26,14 +26,55 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-O1-xNd">
                                 <rect key="frame" x="0.0" y="78" width="414" height="784"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-MK-Zcc">
+                                <rect key="frame" x="344" y="478" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="1cz-CP-mx8"/>
+                                    <constraint firstAttribute="height" constant="50" id="W10-OH-36x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
+                                <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="locationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xsj-H1-7Ri"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-mj-fjB">
+                                <rect key="frame" x="344" y="548" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="J0T-pk-ksf"/>
+                                    <constraint firstAttribute="width" constant="50" id="dqa-pI-JTj"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R3I-0e-nT4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ek3-F1-lAW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1h6-WB-sLg"/>
                             <constraint firstItem="i7B-O1-xNd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="93M-mj-iDu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uLS-MK-Zcc" secondAttribute="trailing" constant="20" id="LV8-t4-pr4"/>
+                            <constraint firstItem="uLS-MK-Zcc" firstAttribute="top" secondItem="ek3-F1-lAW" secondAttribute="bottom" constant="400" id="M5y-SD-wpj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i7B-O1-xNd" secondAttribute="bottom" id="TRb-5K-thI"/>
                             <constraint firstItem="i7B-O1-xNd" firstAttribute="top" secondItem="ek3-F1-lAW" secondAttribute="bottom" id="Tfj-Zb-qSu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ek3-F1-lAW" secondAttribute="trailing" id="Xls-FL-jW7"/>
+                            <constraint firstItem="LbE-mj-fjB" firstAttribute="top" secondItem="uLS-MK-Zcc" secondAttribute="bottom" constant="20" id="fdj-DC-7yl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LbE-mj-fjB" secondAttribute="trailing" constant="20" id="hTs-83-tYM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i7B-O1-xNd" secondAttribute="trailing" id="sIE-yu-GaC"/>
                             <constraint firstItem="ek3-F1-lAW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vXw-gR-yE4"/>
                         </constraints>
@@ -49,4 +90,8 @@
             <point key="canvasLocation" x="133" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+    </resources>
 </document>

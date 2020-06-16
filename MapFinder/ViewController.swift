@@ -15,13 +15,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var dispMap: MKMapView!
     
+    @IBAction func locationButton(_ sender: Any) {
+    }
+    
+    @IBAction func searchButton(_ sender: Any) {
+         searchAroundVenue(loc: currentlocation)
+    }
+    
+    var currentlocation = CLLocationCoordinate2D()
+    
     var venueList:[(name:String, lat:Double, lng:Double, category:String?)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         inputText.delegate = self
-    }
+     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -41,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             let coordinate = location.coordinate
                             print(coordinate)
                             
-                            self.searchAroundVenue(loc: coordinate)
+                            self.currentlocation = coordinate
                             
                             let pin = MKPointAnnotation()
                             
@@ -140,5 +149,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
 }
 
