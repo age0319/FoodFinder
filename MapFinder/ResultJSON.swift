@@ -9,23 +9,34 @@
 import Foundation
 
 struct Categorie:Codable {
-    let name:String?
+    let name:String
 }
-
 
 struct Location:Codable {
-    let lat:Float
-    let lng:Float
+    let lat:Double
+    let lng:Double
 }
 
-struct Venue: Codable{
+struct Venue:Codable {
     let name:String
     let location:Location
-    let categories:[Categorie]?
+    let categories:[Categorie]
+}
+
+struct Item:Codable {
+    let venue: Venue
+}
+
+struct Group: Codable{
+    // Recommended Places
+    let type:String
+    let items:[Item]
 }
 
 struct Response: Codable {
-    let venues:[Venue]
+    let query:String
+    let totalResults:Int
+    let groups:[Group]
 }
 
 struct ResultJson: Codable{
