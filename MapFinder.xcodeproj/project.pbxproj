@@ -15,6 +15,8 @@
 		4959A2982496DEA500EA4EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4959A2962496DEA500EA4EB1 /* LaunchScreen.storyboard */; };
 		4959A2A22497472500EA4EB1 /* ResultJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A12497472500EA4EB1 /* ResultJSON.swift */; };
 		4959A2A42498ABD700EA4EB1 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A32498ABD700EA4EB1 /* RoundButton.swift */; };
+		4959A2A62499AED800EA4EB1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A52499AED800EA4EB1 /* NetworkService.swift */; };
+		4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A72499B26900EA4EB1 /* Utility.swift */; };
 		52935C0D65AD917035951D80 /* Pods_MapFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		4959A2A02496FB4E00EA4EB1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4959A2A12497472500EA4EB1 /* ResultJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultJSON.swift; sourceTree = "<group>"; };
 		4959A2A32498ABD700EA4EB1 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		4959A2A52499AED800EA4EB1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4959A2A72499B26900EA4EB1 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapFinder.debug.xcconfig"; path = "Target Support Files/Pods-MapFinder/Pods-MapFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +82,8 @@
 				4959A2992496DEA500EA4EB1 /* Info.plist */,
 				4959A2A12497472500EA4EB1 /* ResultJSON.swift */,
 				4959A2A32498ABD700EA4EB1 /* RoundButton.swift */,
+				4959A2A52499AED800EA4EB1 /* NetworkService.swift */,
+				4959A2A72499B26900EA4EB1 /* Utility.swift */,
 			);
 			path = MapFinder;
 			sourceTree = "<group>";
@@ -215,10 +221,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */,
 				4959A2A22497472500EA4EB1 /* ResultJSON.swift in Sources */,
 				4959A2A42498ABD700EA4EB1 /* RoundButton.swift in Sources */,
 				4959A2902496DEA400EA4EB1 /* ViewController.swift in Sources */,
 				4959A28C2496DEA400EA4EB1 /* AppDelegate.swift in Sources */,
+				4959A2A62499AED800EA4EB1 /* NetworkService.swift in Sources */,
 				4959A28E2496DEA400EA4EB1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
