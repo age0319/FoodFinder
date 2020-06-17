@@ -13,10 +13,8 @@ import MapKit
 
 class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate{
     
-    private let dataSource = ["寿司","蕎麦","うどん","ラーメン","カレー","焼肉","ピザ"]
-    
+    private var dataSource = [String]()
     var selected = ""
-    
     @IBOutlet weak var pickerView: UIPickerView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -40,8 +38,11 @@ class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate
         pickerView.delegate = self
 
         let hander = NetworkGurunaviService()
-        hander.getCategory(completion:{(hoge) in
-            print(hoge)
+        hander.getCategory(completion:{(category) in
+            for i in category{
+                self.dataSource.append(i.1)
+            }
+            self.pickerView.reloadAllComponents()
        })
     }
     

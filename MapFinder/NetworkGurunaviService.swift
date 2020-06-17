@@ -15,7 +15,7 @@ class NetworkGurunaviService {
     var venueList:[(name:String, lat:Double, lng:Double, category:String?)] = []
     var categoryList:[(code:String, name:String)] = []
 
-    func getCategory(completion: @escaping (String?) -> ()){
+    func getCategory(completion: @escaping ([(String,String)]) -> ()){
         
         let url = "https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/?keyid=" + keyId
         
@@ -38,7 +38,7 @@ class NetworkGurunaviService {
 
             dispatchGroup.notify(queue: .main){
                 print(self.categoryList)
-                completion("hoge")
+                completion(self.categoryList)
             }
     }
     
