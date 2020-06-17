@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+// FourSquareAPI
 struct Categorie:Codable {
     let name:String
 }
@@ -44,3 +46,13 @@ struct ResultJson: Codable{
 }
 
 
+//Gurunavi Category
+
+struct CategoryJSON: Codable{
+    let category_l:[Category]
+}
+
+struct Category: Codable{
+    let category_l_code:String
+    let category_l_name:String
+}

@@ -37,24 +37,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func searchButton(_ sender: Any) {
         
         
-        let handler = NetworkService()
-        handler.searchAroundVenue(loc: self.venueSearchLoc, completion: { (venueList) in
-
-            guard let venueList = venueList else { return }
-    
-            for venue in venueList{
-                print(venue.name)
-                print(venue.lat,venue.lng)
-                 
-                // 地図上のピンに名前と緯度経度をセットする。
-                let pin = MKPointAnnotation()
-
-                pin.coordinate = Utility().doubleToCoordinate(lat: venue.lat, lng: venue.lng)
-                pin.title = venue.name
-
-                self.dispMap.addAnnotation(pin)
-             }
-         
+//        let handler = NetworkFourSquareService()
+//        handler.searchAroundVenue(loc: self.venueSearchLoc, completion: { (venueList) in
+//
+//            guard let venueList = venueList else { return }
+//
+//            for venue in venueList{
+//                print(venue.name)
+//                print(venue.lat,venue.lng)
+//
+//                // 地図上のピンに名前と緯度経度をセットする。
+//                let pin = MKPointAnnotation()
+//
+//                pin.coordinate = Utility().doubleToCoordinate(lat: venue.lat, lng: venue.lng)
+//                pin.title = venue.name
+//
+//                self.dispMap.addAnnotation(pin)
+//             }
+//
+//        })
+        
+        let handler = NetworkGurunaviService()
+        handler.searchAroundVenue(loc: self.venueSearchLoc, completion: {(hoge) in
+            print("")
         })
      
     }

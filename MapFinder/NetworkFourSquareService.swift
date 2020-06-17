@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class NetworkService {
+class NetworkFourSquareService {
     
     var venueList:[(name:String, lat:Double, lng:Double, category:String?)] = []
 
@@ -69,6 +69,5 @@ class NetworkService {
         } catch  {
             print("エラー")
         }
-            
     }
 }

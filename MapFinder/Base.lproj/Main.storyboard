@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--お店一覧-->
         <scene sceneID="AFH-Qb-3bx">
             <objects>
                 <viewController id="fkj-Sa-4uH" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="5C6-NR-PMI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="L3T-Zq-HNu"/>
+                    <navigationItem key="navigationItem" title="お店一覧" id="L6k-kU-vg4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUv-65-NOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-533" y="1276"/>
+            <point key="canvasLocation" x="376.81159420289856" y="1275.6696428571429"/>
         </scene>
-        <!--Setting-->
+        <!--食べたい物-->
         <scene sceneID="s5Z-fh-aBg">
             <objects>
                 <viewController id="cil-Kj-DS3" customClass="SettingVC" customModule="MapFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,42 +31,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="pvq-bK-SmD">
-                                <rect key="frame" x="40" y="84" width="334" height="372"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食べたい物を選択してね。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPT-YM-stL">
-                                <rect key="frame" x="40" y="496" width="334" height="21"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-ax-fM7">
+                                <rect key="frame" x="0.0" y="188.5" width="414" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食べたい物を選択してね。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPT-YM-stL">
+                                <rect key="frame" x="40" y="128" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-ax-fM7">
-                                <rect key="frame" x="0.0" y="557" width="414" height="216"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="JPT-YM-stL" firstAttribute="top" secondItem="pvq-bK-SmD" secondAttribute="bottom" constant="40" id="7Uc-dw-VVG"/>
-                            <constraint firstItem="pvq-bK-SmD" firstAttribute="top" secondItem="xVG-er-5dX" secondAttribute="top" constant="40" id="FiI-Ek-3KM"/>
-                            <constraint firstItem="xVG-er-5dX" firstAttribute="trailing" secondItem="JPT-YM-stL" secondAttribute="trailing" constant="40" id="Hfc-W3-h0L"/>
-                            <constraint firstItem="JjF-ax-fM7" firstAttribute="top" secondItem="JPT-YM-stL" secondAttribute="bottom" constant="40" id="JJS-fW-iGw"/>
-                            <constraint firstItem="JjF-ax-fM7" firstAttribute="trailing" secondItem="xVG-er-5dX" secondAttribute="trailing" id="Lwr-Sr-Ncz"/>
-                            <constraint firstItem="xVG-er-5dX" firstAttribute="bottom" secondItem="JjF-ax-fM7" secondAttribute="bottom" constant="40" id="NSf-j7-aBW"/>
-                            <constraint firstItem="JjF-ax-fM7" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" id="Qcx-CU-zML"/>
-                            <constraint firstItem="pvq-bK-SmD" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" constant="40" id="jwl-Fn-027"/>
-                            <constraint firstItem="xVG-er-5dX" firstAttribute="trailing" secondItem="pvq-bK-SmD" secondAttribute="trailing" constant="40" id="mbq-ZC-gED"/>
-                            <constraint firstItem="JPT-YM-stL" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" constant="40" id="uhx-KE-1OF"/>
+                            <constraint firstItem="xVG-er-5dX" firstAttribute="trailing" secondItem="JPT-YM-stL" secondAttribute="trailing" constant="40" id="1vt-PE-FgD"/>
+                            <constraint firstItem="JjF-ax-fM7" firstAttribute="top" secondItem="JPT-YM-stL" secondAttribute="bottom" constant="40" id="6JO-gV-9sD"/>
+                            <constraint firstItem="JjF-ax-fM7" firstAttribute="trailing" secondItem="xVG-er-5dX" secondAttribute="trailing" id="B8a-Xk-vaL"/>
+                            <constraint firstItem="JPT-YM-stL" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" constant="40" id="UtS-sL-7Jt"/>
+                            <constraint firstItem="JjF-ax-fM7" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" id="amU-DU-Dql"/>
+                            <constraint firstItem="JPT-YM-stL" firstAttribute="top" secondItem="xVG-er-5dX" secondAttribute="top" constant="40" id="dKF-m6-UR0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xVG-er-5dX"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" image="heart" catalog="system" id="3ux-WP-iVn"/>
+                    <navigationItem key="navigationItem" title="食べたい物" id="IvM-xP-pje"/>
                     <connections>
                         <outlet property="pickerView" destination="JjF-ax-fM7" id="nkA-rh-Gqi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAH-yW-XXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-533.33333333333337" y="-156.02678571428569"/>
+            <point key="canvasLocation" x="376.81159420289856" y="-156.02678571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8W6-DB-vIb">
@@ -78,16 +71,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cil-Kj-DS3" kind="relationship" relationship="viewControllers" id="8eP-6f-eW2"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="fhs-ay-mmv"/>
-                        <segue destination="fkj-Sa-4uH" kind="relationship" relationship="viewControllers" id="EXf-kQ-H6J"/>
+                        <segue destination="G2a-cz-nNh" kind="relationship" relationship="viewControllers" id="8eP-6f-eW2"/>
+                        <segue destination="Psn-8F-Uwf" kind="relationship" relationship="viewControllers" id="fhs-ay-mmv"/>
+                        <segue destination="AOi-sb-hkr" kind="relationship" relationship="viewControllers" id="EXf-kQ-H6J"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fX1-od-gaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1612" y="119"/>
         </scene>
-        <!--Map-->
+        <!--地図-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="東京駅" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-F1-lAW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="sET-7J-T1b"/>
                                 </constraints>
@@ -104,10 +97,28 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-O1-xNd">
-                                <rect key="frame" x="0.0" y="78" width="414" height="735"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="691"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-mj-fjB" customClass="RoundButton" customModule="MapFinder" customModuleProvider="target">
+                                <rect key="frame" x="344" y="723" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="J0T-pk-ksf"/>
+                                    <constraint firstAttribute="width" constant="50" id="dqa-pI-JTj"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R3I-0e-nT4"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-MK-Zcc" customClass="RoundButton" customModule="MapFinder" customModuleProvider="target">
-                                <rect key="frame" x="344" y="478" width="50" height="50"/>
+                                <rect key="frame" x="344" y="653" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="1cz-CP-mx8"/>
@@ -125,42 +136,24 @@
                                     <action selector="locationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xsj-H1-7Ri"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-mj-fjB" customClass="RoundButton" customModule="MapFinder" customModuleProvider="target">
-                                <rect key="frame" x="344" y="548" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="J0T-pk-ksf"/>
-                                    <constraint firstAttribute="width" constant="50" id="dqa-pI-JTj"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="magnifyingglass" catalog="system"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R3I-0e-nT4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LbE-mj-fjB" secondAttribute="bottom" constant="40" id="0L8-Bg-r8L"/>
                             <constraint firstItem="ek3-F1-lAW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1h6-WB-sLg"/>
                             <constraint firstItem="i7B-O1-xNd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="93M-mj-iDu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uLS-MK-Zcc" secondAttribute="trailing" constant="20" id="LV8-t4-pr4"/>
-                            <constraint firstItem="uLS-MK-Zcc" firstAttribute="top" secondItem="ek3-F1-lAW" secondAttribute="bottom" constant="400" id="M5y-SD-wpj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i7B-O1-xNd" secondAttribute="bottom" id="TRb-5K-thI"/>
                             <constraint firstItem="i7B-O1-xNd" firstAttribute="top" secondItem="ek3-F1-lAW" secondAttribute="bottom" id="Tfj-Zb-qSu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ek3-F1-lAW" secondAttribute="trailing" id="Xls-FL-jW7"/>
-                            <constraint firstItem="LbE-mj-fjB" firstAttribute="top" secondItem="uLS-MK-Zcc" secondAttribute="bottom" constant="20" id="fdj-DC-7yl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LbE-mj-fjB" secondAttribute="trailing" constant="20" id="hTs-83-tYM"/>
+                            <constraint firstItem="LbE-mj-fjB" firstAttribute="top" secondItem="uLS-MK-Zcc" secondAttribute="bottom" constant="20" id="mzx-gD-fbK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i7B-O1-xNd" secondAttribute="trailing" id="sIE-yu-GaC"/>
                             <constraint firstItem="ek3-F1-lAW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vXw-gR-yE4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Phr-0q-zeZ"/>
+                    <navigationItem key="navigationItem" title="地図" id="ZtU-Ql-E6L"/>
                     <connections>
                         <outlet property="dispMap" destination="i7B-O1-xNd" id="OWW-gV-t64"/>
                         <outlet property="inputText" destination="ek3-F1-lAW" id="oIg-k1-YaX"/>
@@ -168,12 +161,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-533" y="522"/>
+            <point key="canvasLocation" x="376.81159420289856" y="521.65178571428567"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="0Ct-0C-Esk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G2a-cz-nNh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Setting" image="heart" catalog="system" id="3ux-WP-iVn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yFj-Dx-mW9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cil-Kj-DS3" kind="relationship" relationship="rootViewController" id="FAe-kN-xQ7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Y8-kQ-PQp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-533.33333333333337" y="-156.02678571428569"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="za0-6J-539">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Psn-8F-Uwf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Phr-0q-zeZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KfS-AK-UEX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WmB-9e-8wC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="80z-sS-xVD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-533.33333333333337" y="521.65178571428567"/>
+        </scene>
+        <!--Shop-->
+        <scene sceneID="vTd-zR-47l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AOi-sb-hkr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shop" image="list.dash" catalog="system" id="L3T-Zq-HNu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KOk-yT-fjk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fkj-Sa-4uH" kind="relationship" relationship="rootViewController" id="0Ey-XT-enS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ic-6E-PFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-533.33333333333337" y="1275.6696428571429"/>
         </scene>
     </scenes>
     <resources>
-        <image name="food" width="4350" height="2900"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
