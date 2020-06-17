@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sBB-un-Tri">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,87 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item 2-->
+        <scene sceneID="AFH-Qb-3bx">
+            <objects>
+                <viewController id="fkj-Sa-4uH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o4G-ls-pE7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5C6-NR-PMI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="L3T-Zq-HNu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NUv-65-NOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-533" y="1276"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="s5Z-fh-aBg">
+            <objects>
+                <viewController id="cil-Kj-DS3" customClass="SettingVC" customModule="MapFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dkv-UM-tj0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="pvq-bK-SmD">
+                                <rect key="frame" x="40" y="84" width="334" height="372"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食べたい物を選択してね。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPT-YM-stL">
+                                <rect key="frame" x="40" y="496" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-ax-fM7">
+                                <rect key="frame" x="0.0" y="557" width="414" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JPT-YM-stL" firstAttribute="top" secondItem="pvq-bK-SmD" secondAttribute="bottom" constant="40" id="7Uc-dw-VVG"/>
+                            <constraint firstItem="pvq-bK-SmD" firstAttribute="top" secondItem="xVG-er-5dX" secondAttribute="top" constant="40" id="FiI-Ek-3KM"/>
+                            <constraint firstItem="xVG-er-5dX" firstAttribute="trailing" secondItem="JPT-YM-stL" secondAttribute="trailing" constant="40" id="Hfc-W3-h0L"/>
+                            <constraint firstItem="JjF-ax-fM7" firstAttribute="top" secondItem="JPT-YM-stL" secondAttribute="bottom" constant="40" id="JJS-fW-iGw"/>
+                            <constraint firstItem="JjF-ax-fM7" firstAttribute="trailing" secondItem="xVG-er-5dX" secondAttribute="trailing" id="Lwr-Sr-Ncz"/>
+                            <constraint firstItem="xVG-er-5dX" firstAttribute="bottom" secondItem="JjF-ax-fM7" secondAttribute="bottom" constant="40" id="NSf-j7-aBW"/>
+                            <constraint firstItem="JjF-ax-fM7" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" id="Qcx-CU-zML"/>
+                            <constraint firstItem="pvq-bK-SmD" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" constant="40" id="jwl-Fn-027"/>
+                            <constraint firstItem="xVG-er-5dX" firstAttribute="trailing" secondItem="pvq-bK-SmD" secondAttribute="trailing" constant="40" id="mbq-ZC-gED"/>
+                            <constraint firstItem="JPT-YM-stL" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" constant="40" id="uhx-KE-1OF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xVG-er-5dX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Setting" image="heart" catalog="system" id="3ux-WP-iVn"/>
+                    <connections>
+                        <outlet property="pickerView" destination="JjF-ax-fM7" id="nkA-rh-Gqi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAH-yW-XXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-533.33333333333337" y="-156.02678571428569"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8W6-DB-vIb">
+            <objects>
+                <tabBarController id="sBB-un-Tri" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dno-gA-fmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cil-Kj-DS3" kind="relationship" relationship="viewControllers" id="8eP-6f-eW2"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="fhs-ay-mmv"/>
+                        <segue destination="fkj-Sa-4uH" kind="relationship" relationship="viewControllers" id="EXf-kQ-H6J"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fX1-od-gaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1612" y="119"/>
+        </scene>
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,7 +95,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-F1-lAW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="東京駅" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-F1-lAW">
                                 <rect key="frame" x="0.0" y="44" width="414" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="sET-7J-T1b"/>
@@ -24,7 +104,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-O1-xNd">
-                                <rect key="frame" x="0.0" y="78" width="414" height="784"/>
+                                <rect key="frame" x="0.0" y="78" width="414" height="735"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-MK-Zcc" customClass="RoundButton" customModule="MapFinder" customModuleProvider="target">
                                 <rect key="frame" x="344" y="478" width="50" height="50"/>
@@ -80,6 +160,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Phr-0q-zeZ"/>
                     <connections>
                         <outlet property="dispMap" destination="i7B-O1-xNd" id="OWW-gV-t64"/>
                         <outlet property="inputText" destination="ek3-F1-lAW" id="oIg-k1-YaX"/>
@@ -87,11 +168,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="139"/>
+            <point key="canvasLocation" x="-533" y="522"/>
         </scene>
     </scenes>
     <resources>
+        <image name="food" width="4350" height="2900"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="map" catalog="system" width="128" height="113"/>
     </resources>
 </document>
