@@ -9,13 +9,13 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class MapVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var dispMap: MKMapView!
     
     var venueSearchLoc = CLLocationCoordinate2D()
-    var foodChoise:(String,String) = ("","")
+    var foodChoise = (String(),String())
     
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
@@ -48,6 +48,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         inputText.delegate = self
+        let testLoc = CLLocationCoordinate2D(latitude: 35.6776117, longitude: 139.7651235)
+        moveToCoordinate(loc: testLoc, title: "東京駅")
+        self.venueSearchLoc = testLoc
      }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,26 +60,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        if var searchKey = textField.text{
+        guard let searchKey = textField.text else { return false }
             
-            let geocoder = CLGeocoder()
-            
-            searchKey = "東京駅"
+        let geocoder = CLGeocoder()
+    
+        geocoder.geocodeAddressString(searchKey, completionHandler: { (placemarks, error) in
         
-            geocoder.geocodeAddressString(searchKey, completionHandler: { (placemarks, error) in
-            
-                if let unwrapPlacemarks = placemarks{
-                    if let firstPlacemark = unwrapPlacemarks.first{
-                        if let location = firstPlacemark.location{
-                            let coordinate = location.coordinate
-                            
-                            self.venueSearchLoc = coordinate
-                            self.moveToCoordinate(loc: coordinate, title: searchKey)
-                        }
-                    }
-                }
-            })
-        }
+            guard let unwrapPlacemarks = placemarks else { return }
+            guard let firstPlacemark = unwrapPlacemarks.first else { return }
+            guard let location = firstPlacemark.location else { return }
+
+            let coordinate = location.coordinate
+            self.venueSearchLoc = coordinate
+            print(coordinate)
+            self.moveToCoordinate(loc: coordinate, title: searchKey)
+                    
+        })
         
         return true
     }

@@ -47,7 +47,7 @@ class NetworkGurunaviService {
         var url = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=" + keyId
         url += "&latitude=" + String(loc.latitude)
         url += "&longitude=" + String(loc.longitude)
-        url += "&category_l=" + "RSFST08000"
+        url += "&category_l=" + "RSFST08000" //ラーメン
         
         
         let req_url = URL(string: url)

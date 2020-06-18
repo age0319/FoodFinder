@@ -15,6 +15,8 @@ class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate
     
     var categoryList:[(code:String, name:String)] = []
     @IBOutlet weak var pickerView: UIPickerView!
+    var navController = UINavigationController()
+    var mapvc = MapVC()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -25,13 +27,7 @@ class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-//        let sec = self.tabBarController?.viewControllers![0] as! ViewController
-//        sec.foodChoise = categoryList[row]
-        
-        let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
-        let vc = navController.topViewController as! ViewController
-        vc.foodChoise = categoryList[row]
+        mapvc.foodChoise = categoryList[row]
     }
     
     
@@ -42,12 +38,10 @@ class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate
     override func viewDidLoad() {
         pickerView.dataSource = self
         pickerView.delegate = self
-
-        let hander = NetworkGurunaviService()
-        hander.getCategory(completion:{(category) in
-            self.categoryList = category
-            self.pickerView.reloadAllComponents()
-       })
+        categoryList = Utility().categoryList
+        navController = tabBarController?.viewControllers![1] as! UINavigationController
+        mapvc = navController.topViewController as! MapVC
+        mapvc.foodChoise = categoryList[0]
     }
     
     
