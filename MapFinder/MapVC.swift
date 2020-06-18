@@ -38,8 +38,10 @@ class MapVC: UIViewController, UITextFieldDelegate {
     @IBAction func searchButton(_ sender: Any) {
         
         let handler = NetworkGurunaviService()
-        handler.searchAroundVenue(loc: self.venueSearchLoc, completion: {(hoge) in
-            print("")
+        handler.searchAroundVenue(loc: self.venueSearchLoc, category: self.foodChoise, completion: {(restList) in
+            for i in restList{
+                print(i.name,i.budget)
+            }
         })
      
     }

@@ -14,6 +14,7 @@ class NetworkGurunaviService {
     let keyId = "de12ee212e6eeb2bd9a331a797683318"
     var venueList:[(name:String, lat:Double, lng:Double, category:String?)] = []
     var categoryList:[(code:String, name:String)] = []
+    var restList = [Restaurant]()
 
     func getCategory(completion: @escaping ([(String,String)]) -> ()){
         
@@ -42,13 +43,13 @@ class NetworkGurunaviService {
             }
     }
     
-    func searchAroundVenue(loc:CLLocationCoordinate2D,completion: @escaping (String?) -> ()){
+    func searchAroundVenue(loc:CLLocationCoordinate2D,category:(code:String,name:String),completion: @escaping ([Restaurant]) -> ()){
                
         var url = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=" + keyId
         url += "&latitude=" + String(loc.latitude)
         url += "&longitude=" + String(loc.longitude)
-        url += "&category_l=" + "RSFST08000" //ラーメン
-        
+        url += "&category_l=" + category.code
+        url += "&hit_per_page=" + String(20)
         
         let req_url = URL(string: url)
         let req = URLRequest(url: req_url!)
@@ -61,14 +62,14 @@ class NetworkGurunaviService {
             (data, response, error) in
             session.finishTasksAndInvalidate()
             print(String(data:data!, encoding:String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
+            self.ParseJSON(data: data!)
             dispatchGroup.leave()
             })
         
         task.resume()
 
         dispatchGroup.notify(queue: .main){
-            print("hoge")
-            completion("hoge")
+            completion(self.restList)
         }
     }
 
@@ -76,16 +77,13 @@ class NetworkGurunaviService {
         
         do {
             let decoder = JSONDecoder()
-            let json = try decoder.decode(CategoryJSON.self, from: data)
+            let json = try decoder.decode(RestaurantJSON.self, from: data)
+            print("pass")
             
-            let items = json.category_l
-            
-            for item in items{
-                let code = item.category_l_code
-                let name = item.category_l_name
-                categoryList.append((code,name))
+            for i in json.rest{
+                let rest = Restaurant(name: i.name, latitude: i.latitude, longitude: i.longitude, url: i.url, image_url: i.image_url, opentime: i.opentime, access: i.access, budget: i.budget)
+                restList.append(rest)
             }
-            
         } catch  {
             print("エラー")
         }
