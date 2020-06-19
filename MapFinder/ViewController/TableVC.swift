@@ -27,14 +27,20 @@ class TableVC: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShopCell
-//        cell.imageview.image = restList[indexPath.row].image_url.
+
         let shop = restList[indexPath.row]
         cell.shopname.text = shop.name
         cell.price.text = "予算:" + String(shop.budget) + "円"
         cell.opentime.text = "営業時間:" + shop.opentime
         cell.nearStation.text = "最寄駅:" + shop.access.station
-        cell.imageview.image = UIImage(url: shop.image_url.shop_image1)
         
+        let image = shop.image_url.shop_image1
+        
+        if image.isEmpty {
+            cell.imageview.image = UIImage(named: "noimage")
+        }else{
+            cell.imageview.image = UIImage(url: image)
+        }
         return cell
     }
     
@@ -45,14 +51,13 @@ class TableVC: UITableViewController{
 
 extension UIImage {
     public convenience init(url: String) {
-        if let url = URL(string: url){
-            do {
-                let data = try Data(contentsOf: url)
-                self.init(data: data)!
-                return
-            } catch let err {
-                print("Error : \(err.localizedDescription)")
-            }
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            self.init(data: data)!
+            return
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
         }
         self.init()
     }
