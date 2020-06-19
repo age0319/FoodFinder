@@ -29,7 +29,7 @@ class MapVC: UIViewController, UITextFieldDelegate {
             
             let location:CLLocationCoordinate2D = currentLocation.coordinate
             venueSearchLoc = location
-            self.dispMap.region = MKCoordinateRegion(center: location, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+            dispMap.region = MKCoordinateRegion(center: location, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
         }
     }
     
@@ -51,6 +51,9 @@ class MapVC: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
+            
+            self.dispMap.region = MKCoordinateRegion(center: self.venueSearchLoc, latitudinalMeters: 1000.0, longitudinalMeters: 1000.0)
+
         })
      
     }
@@ -72,8 +75,10 @@ class MapVC: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        guard let searchKey = textField.text else { return false }
-            
+        guard var searchKey = textField.text else { return false }
+        
+        searchKey = "東京駅"
+        
         let geocoder = CLGeocoder()
     
         geocoder.geocodeAddressString(searchKey, completionHandler: { (placemarks, error) in

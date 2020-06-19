@@ -50,6 +50,7 @@ class NetworkGurunaviService {
         url += "&longitude=" + String(loc.longitude)
         url += "&category_l=" + category.code
         url += "&hit_per_page=" + String(100)
+        url += "&range=" + String(3) // 1000m
         
         let req_url = URL(string: url)
         let req = URLRequest(url: req_url!)

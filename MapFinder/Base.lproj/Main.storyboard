@@ -7,22 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--お店一覧-->
-        <scene sceneID="AFH-Qb-3bx">
-            <objects>
-                <viewController id="fkj-Sa-4uH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o4G-ls-pE7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="5C6-NR-PMI"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="お店一覧" id="L6k-kU-vg4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NUv-65-NOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="376.81159420289856" y="1275.6696428571429"/>
-        </scene>
         <!--食べたい物-->
         <scene sceneID="s5Z-fh-aBg">
             <objects>
@@ -213,12 +197,96 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fkj-Sa-4uH" kind="relationship" relationship="rootViewController" id="0Ey-XT-enS"/>
+                        <segue destination="Dg5-sv-oXo" kind="relationship" relationship="rootViewController" id="5Gx-51-wdJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ic-6E-PFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-533.33333333333337" y="1275.6696428571429"/>
+        </scene>
+        <!--お店一覧-->
+        <scene sceneID="TcY-OS-6Hz">
+            <objects>
+                <tableViewController id="Dg5-sv-oXo" customClass="TableVC" customModule="MapFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bEl-gg-C4A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="L0P-PU-QdL">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L0P-PU-QdL" id="rWF-iN-wx2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お店の名前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-gj-vLI">
+                                            <rect key="frame" x="120" y="20" width="274" height="19"/>
+                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="価格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXm-6b-dQW">
+                                            <rect key="frame" x="120" y="59" width="35" height="21"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開店時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-sw-IlW">
+                                            <rect key="frame" x="175" y="59" width="70" height="21"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-wk-StF">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="HmS-rF-6SV"/>
+                                                <constraint firstAttribute="width" constant="100" id="OAb-Bm-202"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最寄駅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY9-R5-fmP">
+                                            <rect key="frame" x="265" y="59" width="52" height="21"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dPc-gj-vLI" firstAttribute="leading" secondItem="X0d-wk-StF" secondAttribute="trailing" constant="20" id="0hF-Jl-Qgo"/>
+                                        <constraint firstAttribute="bottom" secondItem="EY9-R5-fmP" secondAttribute="bottom" constant="20" id="5Ki-N3-nQ6"/>
+                                        <constraint firstItem="bXm-6b-dQW" firstAttribute="top" secondItem="dPc-gj-vLI" secondAttribute="bottom" constant="20" id="6VQ-AH-mY5"/>
+                                        <constraint firstItem="EY9-R5-fmP" firstAttribute="leading" secondItem="l8f-sw-IlW" secondAttribute="trailing" constant="20" id="7Im-Ns-kCn"/>
+                                        <constraint firstItem="l8f-sw-IlW" firstAttribute="top" secondItem="dPc-gj-vLI" secondAttribute="bottom" constant="20" id="BiQ-BF-Le0"/>
+                                        <constraint firstAttribute="bottom" secondItem="l8f-sw-IlW" secondAttribute="bottom" constant="20" id="Hic-hr-2rd"/>
+                                        <constraint firstAttribute="bottom" secondItem="X0d-wk-StF" secondAttribute="bottom" id="Mbo-GG-csV"/>
+                                        <constraint firstAttribute="trailing" secondItem="dPc-gj-vLI" secondAttribute="trailing" constant="20" id="cuV-Us-WA0"/>
+                                        <constraint firstItem="X0d-wk-StF" firstAttribute="leading" secondItem="rWF-iN-wx2" secondAttribute="leading" id="eT3-FJ-T3x"/>
+                                        <constraint firstItem="dPc-gj-vLI" firstAttribute="top" secondItem="rWF-iN-wx2" secondAttribute="top" constant="20" id="hCL-WN-bAO"/>
+                                        <constraint firstAttribute="bottom" secondItem="bXm-6b-dQW" secondAttribute="bottom" constant="20" id="knb-Xf-mKG"/>
+                                        <constraint firstItem="bXm-6b-dQW" firstAttribute="leading" secondItem="X0d-wk-StF" secondAttribute="trailing" constant="20" id="oWD-fa-NC8"/>
+                                        <constraint firstItem="l8f-sw-IlW" firstAttribute="leading" secondItem="bXm-6b-dQW" secondAttribute="trailing" constant="20" id="rz3-km-ps4"/>
+                                        <constraint firstItem="X0d-wk-StF" firstAttribute="top" secondItem="rWF-iN-wx2" secondAttribute="top" id="tmW-AX-WZv"/>
+                                        <constraint firstItem="EY9-R5-fmP" firstAttribute="top" secondItem="dPc-gj-vLI" secondAttribute="bottom" constant="20" id="yEI-7K-bbU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dg5-sv-oXo" id="yzu-D4-a95"/>
+                            <outlet property="delegate" destination="Dg5-sv-oXo" id="QkR-ku-BXl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="お店一覧" id="3uq-GJ-OQS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIf-Ns-9Wr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440.57971014492756" y="1275.6696428571429"/>
         </scene>
     </scenes>
     <resources>

@@ -19,6 +19,7 @@
 		4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A72499B26900EA4EB1 /* Utility.swift */; };
 		4959A2AC2499DEA900EA4EB1 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */; };
 		4959A2AE2499F79A00EA4EB1 /* NetworkGurunaviService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */; };
+		4998D766249C90E9002907BD /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D765249C90E9002907BD /* TableVC.swift */; };
 		52935C0D65AD917035951D80 /* Pods_MapFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		4959A2A72499B26900EA4EB1 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGurunaviService.swift; sourceTree = "<group>"; };
+		4998D765249C90E9002907BD /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
 		63111E68AD71B1E684D0ECCF /* Pods_MapFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73E4C43A6C1814CEBCAC57E /* Pods-MapFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapFinder.debug.xcconfig"; path = "Target Support Files/Pods-MapFinder/Pods-MapFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,21 +79,46 @@
 		4959A28A2496DEA400EA4EB1 /* MapFinder */ = {
 			isa = PBXGroup;
 			children = (
+				4998D764249C8C69002907BD /* Network */,
+				4998D763249C8C50002907BD /* Model */,
+				4998D762249C8C21002907BD /* ViewController */,
 				4959A28B2496DEA400EA4EB1 /* AppDelegate.swift */,
 				4959A28D2496DEA400EA4EB1 /* SceneDelegate.swift */,
-				4959A28F2496DEA400EA4EB1 /* MapVC.swift */,
 				4959A2912496DEA400EA4EB1 /* Main.storyboard */,
 				4959A2942496DEA500EA4EB1 /* Assets.xcassets */,
 				4959A2962496DEA500EA4EB1 /* LaunchScreen.storyboard */,
 				4959A2992496DEA500EA4EB1 /* Info.plist */,
-				4959A2A12497472500EA4EB1 /* ResultJSON.swift */,
-				4959A2A32498ABD700EA4EB1 /* RoundButton.swift */,
-				4959A2A52499AED800EA4EB1 /* NetworkFourSquareService.swift */,
-				4959A2A72499B26900EA4EB1 /* Utility.swift */,
-				4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */,
-				4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */,
 			);
 			path = MapFinder;
+			sourceTree = "<group>";
+		};
+		4998D762249C8C21002907BD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4959A28F2496DEA400EA4EB1 /* MapVC.swift */,
+				4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */,
+				4998D765249C90E9002907BD /* TableVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4998D763249C8C50002907BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4959A2A72499B26900EA4EB1 /* Utility.swift */,
+				4959A2A32498ABD700EA4EB1 /* RoundButton.swift */,
+				4959A2A12497472500EA4EB1 /* ResultJSON.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4998D764249C8C69002907BD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4959A2A52499AED800EA4EB1 /* NetworkFourSquareService.swift */,
+				4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		50A9A550BF4CC1962BD1D207 /* Frameworks */ = {
@@ -230,6 +257,7 @@
 				4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */,
 				4959A2AC2499DEA900EA4EB1 /* SettingVC.swift in Sources */,
 				4959A2A22497472500EA4EB1 /* ResultJSON.swift in Sources */,
+				4998D766249C90E9002907BD /* TableVC.swift in Sources */,
 				4959A2AE2499F79A00EA4EB1 /* NetworkGurunaviService.swift in Sources */,
 				4959A2A42498ABD700EA4EB1 /* RoundButton.swift in Sources */,
 				4959A2902496DEA400EA4EB1 /* MapVC.swift in Sources */,
