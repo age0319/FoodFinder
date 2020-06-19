@@ -49,7 +49,7 @@ class NetworkGurunaviService {
         url += "&latitude=" + String(loc.latitude)
         url += "&longitude=" + String(loc.longitude)
         url += "&category_l=" + category.code
-        url += "&hit_per_page=" + String(20)
+        url += "&hit_per_page=" + String(100)
         
         let req_url = URL(string: url)
         let req = URLRequest(url: req_url!)
