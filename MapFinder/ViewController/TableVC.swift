@@ -20,12 +20,40 @@ class ShopCell: UITableViewCell {
 
 class TableVC: UITableViewController{
     var restList = [Restaurant]()
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShopCell
+//        cell.imageview.image = restList[indexPath.row].image_url.
+        let shop = restList[indexPath.row]
+        cell.shopname.text = shop.name
+        cell.price.text = "予算:" + String(shop.budget) + "円"
+        cell.opentime.text = "営業時間:" + shop.opentime
+        cell.nearStation.text = "最寄駅:" + shop.access.station
+        cell.imageview.image = UIImage(url: shop.image_url.shop_image1)
+        
         return cell
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+}
+
+extension UIImage {
+    public convenience init(url: String) {
+        if let url = URL(string: url){
+            do {
+                let data = try Data(contentsOf: url)
+                self.init(data: data)!
+                return
+            } catch let err {
+                print("Error : \(err.localizedDescription)")
+            }
+        }
+        self.init()
     }
 }
