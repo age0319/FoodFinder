@@ -17,6 +17,9 @@ class MapVC: UIViewController, UITextFieldDelegate {
     var venueSearchLoc = CLLocationCoordinate2D()
     var foodChoise = (String(),String())
     
+    var navController = UINavigationController()
+    var tablevc = TableVC()
+    
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -53,6 +56,9 @@ class MapVC: UIViewController, UITextFieldDelegate {
             }
             
             self.dispMap.region = MKCoordinateRegion(center: self.venueSearchLoc, latitudinalMeters: 1000.0, longitudinalMeters: 1000.0)
+            self.navController = self.tabBarController?.viewControllers![2] as! UINavigationController
+            self.tablevc = self.navController.topViewController as! TableVC
+            self.tablevc.restList = restList
 
         })
      
@@ -101,11 +107,6 @@ class MapVC: UIViewController, UITextFieldDelegate {
         
         let pin = MKPointAnnotation()
         pin.coordinate = loc
-       
-        if title != ""{
-           pin.title = title
-        }
-
         self.dispMap.addAnnotation(pin)
     }
             

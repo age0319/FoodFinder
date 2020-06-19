@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0BC987CBC7FF4667DB129B55 /* Pods-MapFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapFinder.release.xcconfig"; path = "Target Support Files/Pods-MapFinder/Pods-MapFinder.release.xcconfig"; sourceTree = "<group>"; };
-		4959A2882496DEA400EA4EB1 /* MapFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4959A2882496DEA400EA4EB1 /* FoodFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4959A28B2496DEA400EA4EB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4959A28D2496DEA400EA4EB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4959A28F2496DEA400EA4EB1 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		4959A2892496DEA400EA4EB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4959A2882496DEA400EA4EB1 /* MapFinder.app */,
+				4959A2882496DEA400EA4EB1 /* FoodFinder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			);
 			name = MapFinder;
 			productName = MapFinder;
-			productReference = 4959A2882496DEA400EA4EB1 /* MapFinder.app */;
+			productReference = 4959A2882496DEA400EA4EB1 /* FoodFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -419,8 +419,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.at.mc1.18.MapFinder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.at.mc1.18.FoodFinder;
+				PRODUCT_NAME = FoodFinder;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -438,8 +438,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.at.mc1.18.MapFinder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.at.mc1.18.FoodFinder;
+				PRODUCT_NAME = FoodFinder;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
