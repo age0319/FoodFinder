@@ -8,11 +8,13 @@
 
 import UIKit
 import MapKit
+import FloatingPanel
 
-class MapVC: UIViewController, UITextFieldDelegate {
+class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
 
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var dispMap: MKMapView!
+    var fpc: FloatingPanelController!
     
     var venueSearchLoc = CLLocationCoordinate2D()
     var foodChoise = (String(),String())
@@ -71,6 +73,9 @@ class MapVC: UIViewController, UITextFieldDelegate {
         self.venueSearchLoc = testLoc
         self.dispMap.region = MKCoordinateRegion(center: testLoc, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
         setPin(loc: testLoc, title: "東京駅")
+        
+        dispMap.delegate = self
+
      }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -109,5 +114,65 @@ class MapVC: UIViewController, UITextFieldDelegate {
         pin.title = title
         self.dispMap.addAnnotation(pin)
     }
-            
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // セミモーダルビューを非表示にする
+        fpc.removePanelFromParent(animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation{
+            print(annotation.title!!)
+            showSemiModal()
+        }
+    }
+    
+    func showSemiModal(){
+        fpc = FloatingPanelController()
+                   
+        fpc.delegate = self
+           
+        fpc.surfaceView.cornerRadius = 24.0
+        
+        // セミモーダルビューとなるViewControllerを生成し、contentViewControllerとしてセットする
+        let semiModalViewController = SemiModalVC()
+        fpc.set(contentViewController: semiModalViewController)
+                   
+        // セミモーダルビューを表示する
+        fpc.addPanel(toParent: self)
+    }
+}
+
+// MARK: - FloatingPanel Delegate
+extension MapVC: FloatingPanelControllerDelegate {
+   
+   // カスタマイズしたレイアウトに変更
+   func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+       return CustomFloatingPanelLayout()
+   }
+}
+
+// MARK: - FloatingPanel Layout
+class CustomFloatingPanelLayout: FloatingPanelLayout {
+   
+   // 初期位置
+   var initialPosition: FloatingPanelPosition {
+        return .tip
+   }
+   
+   // カスタマイズした高さ
+   func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+       switch position {
+       case .full: return 16.0
+       case .half: return 216.0
+       case .tip: return 44.0
+       default: return nil
+       }
+   }
+   
+   // サポートする位置
+   var supportedPositions: Set<FloatingPanelPosition> {
+    return [.tip,.half]
+   }
 }

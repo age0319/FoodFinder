@@ -14,7 +14,6 @@ import FloatingPanel
 
 class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate{
     
-    var fpc: FloatingPanelController!
     var categoryList:[(code:String, name:String)] = []
     @IBOutlet weak var pickerView: UIPickerView!
     var navController = UINavigationController()
@@ -45,57 +44,7 @@ class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate
         mapvc = navController.topViewController as! MapVC
         mapvc.foodChoise = categoryList[0]
         
-        fpc = FloatingPanelController()
-        
-        fpc.delegate = self
-        
-        // セミモーダルビューとなるViewControllerを生成し、contentViewControllerとしてセットする
-        let semiModalViewController = SemiModalVC()
-        fpc.set(contentViewController: semiModalViewController)
-                
-        // セミモーダルビューを表示する
-        fpc.addPanel(toParent: self)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // セミモーダルビューを非表示にする
-        fpc.removePanelFromParent(animated: true)
-        
-    }
-    
+    }    
     
 }
 
-// MARK: - FloatingPanel Delegate
-extension SettingVC: FloatingPanelControllerDelegate {
-   
-   // カスタマイズしたレイアウトに変更
-   func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
-       return CustomFloatingPanelLayout()
-   }
-}
-
-// MARK: - FloatingPanel Layout
-class CustomFloatingPanelLayout: FloatingPanelLayout {
-   
-   // 初期位置
-   var initialPosition: FloatingPanelPosition {
-        return .tip
-   }
-   
-   // カスタマイズした高さ
-   func insetFor(position: FloatingPanelPosition) -> CGFloat? {
-       switch position {
-       case .full: return 16.0
-       case .half: return 216.0
-       case .tip: return 44.0
-       default: return nil
-       }
-   }
-   
-   // サポートする位置
-   var supportedPositions: Set<FloatingPanelPosition> {
-    return [.tip,.half]
-   }
-}
