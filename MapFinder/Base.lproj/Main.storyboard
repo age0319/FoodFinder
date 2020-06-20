@@ -45,6 +45,21 @@
             </objects>
             <point key="canvasLocation" x="376.81159420289856" y="-156.02678571428569"/>
         </scene>
+        <!--Semi ModalVC-->
+        <scene sceneID="XMQ-wt-X3W">
+            <objects>
+                <viewController id="U7e-k6-lFJ" customClass="SemiModalVC" customModule="FoodFinder" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oks-OI-zRF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ILB-kw-jPE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JgY-wi-Fnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1399" y="-157"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8W6-DB-vIb">
             <objects>

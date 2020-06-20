@@ -59,7 +59,6 @@ class MapVC: UIViewController, UITextFieldDelegate {
             self.navController = self.tabBarController?.viewControllers![2] as! UINavigationController
             self.tablevc = self.navController.topViewController as! TableVC
             self.tablevc.restList = restList
-
         })
      
     }
@@ -107,6 +106,7 @@ class MapVC: UIViewController, UITextFieldDelegate {
         
         let pin = MKPointAnnotation()
         pin.coordinate = loc
+        pin.title = title
         self.dispMap.addAnnotation(pin)
     }
             

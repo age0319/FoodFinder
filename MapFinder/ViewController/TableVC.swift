@@ -47,6 +47,7 @@ class TableVC: UITableViewController{
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
+    
 }
 
 extension UIImage {

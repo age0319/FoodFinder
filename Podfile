@@ -7,4 +7,6 @@ target 'MapFinder' do
 
   # Pods for MapFinder
   pod 'FoursquareAPIClient'
+  pod 'PanModal'
+  pod 'FloatingPanel'
 end
