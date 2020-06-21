@@ -10,11 +10,10 @@ import UIKit
 import MapKit
 import FloatingPanel
 
-class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
+class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingPanelControllerDelegate{
 
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var dispMap: MKMapView!
-    var fpc: FloatingPanelController!
     
     var venueSearchLoc = CLLocationCoordinate2D()
     var foodChoise = (String(),String())
@@ -62,6 +61,7 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
             self.navController = self.tabBarController?.viewControllers![2] as! UINavigationController
             self.tablevc = self.navController.topViewController as! TableVC
             self.tablevc.restList = restList
+            self.showSemiModal()
         })
      
     }
@@ -126,70 +126,43 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // セミモーダルビューを非表示にする
-        fpc.removePanelFromParent(animated: true)
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        // セミモーダルビューを非表示にする
+//        fpc.removePanelFromParent(animated: true)
+//    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? RestAnnotation {
             print(annotation.title!)
             print(annotation.rest.access)
             self.dispMap.region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-            showSemiModal()
         }
         
     }
     
     func showSemiModal(){
-        fpc = FloatingPanelController()
+        
+        let fpc = FloatingPanelController()
                    
         fpc.delegate = self
            
         fpc.surfaceView.cornerRadius = 24.0
         
         // セミモーダルビューとなるViewControllerを生成し、contentViewControllerとしてセットする
-        let semiModalViewController = SemiModalVC()
-        fpc.set(contentViewController: semiModalViewController)
+//        let vc = SemiModalVC()
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
+            return
+        }
+                
+        fpc.set(contentViewController: vc)
                    
         // セミモーダルビューを表示する
         fpc.addPanel(toParent: self)
     }
 }
 
-// MARK: - FloatingPanel Delegate
-extension MapVC: FloatingPanelControllerDelegate {
-   
-   // カスタマイズしたレイアウトに変更
-   func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
-       return CustomFloatingPanelLayout()
-   }
-}
-
-// MARK: - FloatingPanel Layout
-class CustomFloatingPanelLayout: FloatingPanelLayout {
-   
-   // 初期位置
-   var initialPosition: FloatingPanelPosition {
-        return .half
-   }
-   
-   // カスタマイズした高さ
-   func insetFor(position: FloatingPanelPosition) -> CGFloat? {
-       switch position {
-       case .full: return 16.0
-       case .half: return 100.0
-       case .tip: return 20.0
-       default: return nil
-       }
-   }
-   
-   // サポートする位置
-   var supportedPositions: Set<FloatingPanelPosition> {
-    return [.half,.tip]
-   }
-}
 
 class RestAnnotation: NSObject,MKAnnotation{
     var title: String?
