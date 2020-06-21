@@ -46,13 +46,14 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
         let handler = NetworkGurunaviService()
         handler.searchAroundVenue(loc: self.venueSearchLoc, category: self.foodChoise, completion: {(restList) in
             
-            for i in restList{
-                print(i.name,i.budget,i.latitude)
+            for rest in restList{
+                print(rest.name,rest.budget,rest.latitude)
                 
-                if let lat = Double(i.latitude){
-                    if let long = Double(i.longitude) {
+                if let lat = Double(rest.latitude){
+                    if let long = Double(rest.longitude) {
                         let loc = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                        self.setPin(loc: loc, title: i.name)
+//                        self.setPin(loc: loc, title: rest.name)
+                        self.setRestPin(loc: loc, title: rest.name, rest: rest)
                     }
                 }
             }
@@ -115,6 +116,16 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
         self.dispMap.addAnnotation(pin)
     }
     
+    func setRestPin(loc:CLLocationCoordinate2D,title:String,rest:Restaurant){
+        let pin = RestAnnotation()
+        pin.coordinate = loc
+        pin.title = title
+        pin.rest = rest
+        
+        self.dispMap.addAnnotation(pin)
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // セミモーダルビューを非表示にする
@@ -122,10 +133,13 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation{
-            print(annotation.title!!)
+        if let annotation = view.annotation as? RestAnnotation {
+            print(annotation.title!)
+            print(annotation.rest.access)
+            self.dispMap.region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
             showSemiModal()
         }
+        
     }
     
     func showSemiModal(){
@@ -158,21 +172,33 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
    
    // 初期位置
    var initialPosition: FloatingPanelPosition {
-        return .tip
+        return .half
    }
    
    // カスタマイズした高さ
    func insetFor(position: FloatingPanelPosition) -> CGFloat? {
        switch position {
        case .full: return 16.0
-       case .half: return 216.0
-       case .tip: return 44.0
+       case .half: return 100.0
+       case .tip: return 20.0
        default: return nil
        }
    }
    
    // サポートする位置
    var supportedPositions: Set<FloatingPanelPosition> {
-    return [.tip,.half]
+    return [.half,.tip]
    }
+}
+
+class RestAnnotation: NSObject,MKAnnotation{
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var rest:Restaurant
+    
+    override init(){
+        self.title = String()
+        self.coordinate = CLLocationCoordinate2D()
+        self.rest = Restaurant()
+    }
 }

@@ -81,8 +81,21 @@ class NetworkGurunaviService {
             let json = try decoder.decode(RestaurantJSON.self, from: data)
             print("pass")
             
-            for i in json.rest{
-                let rest = Restaurant(name: i.name, latitude: i.latitude, longitude: i.longitude, url: i.url, image_url: i.image_url, opentime: i.opentime, access: i.access, budget: i.budget)
+            for shop in json.rest{
+                let rest = Restaurant()
+                
+                let image = ImageClass()
+                image.shop_image1 = shop.image_url.shop_image1
+                image.shop_image2 = shop.image_url.shop_image2
+                
+                let access = AccessClass()
+                access.line = shop.access.line
+                access.station = shop.access.station
+                access.station_exit = shop.access.station_exit
+                access.walk = shop.access.walk
+                
+                rest.set(name: shop.name, latitude: shop.latitude, longitude: shop.longitude, url: shop.url, image_url: image, opentime: shop.opentime, access: access, budget: shop.budget)
+                
                 restList.append(rest)
             }
         } catch  {
