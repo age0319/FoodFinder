@@ -15,7 +15,7 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var dispMap: MKMapView!
     
-    var venueSearchLoc = CLLocationCoordinate2D()
+    var currentLocation = CLLocation()
     var foodChoise = (String(),String())
     
     var navController = UINavigationController()
@@ -28,12 +28,9 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             guard let currentLocation = locManager.location else { return }
-            print(currentLocation.coordinate.latitude)
-            print(currentLocation.coordinate.longitude)
-            
-            let location:CLLocationCoordinate2D = currentLocation.coordinate
-            venueSearchLoc = location
-            dispMap.region = MKCoordinateRegion(center: location, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+
+            self.currentLocation = currentLocation
+            dispMap.region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
         }
     }
     
@@ -43,37 +40,51 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
         self.dispMap.removeAnnotations(allAnnotations)
         
         let handler = NetworkGurunaviService()
-        handler.searchAroundVenue(loc: self.venueSearchLoc, category: self.foodChoise, completion: {(restList) in
+        handler.searchAroundVenue(loc: self.currentLocation.coordinate, category: self.foodChoise, completion: {(restList) in
             
             for rest in restList{
                 print(rest.name,rest.budget,rest.latitude)
                 
+                //緯度経度情報がないお店はピンがセットされない。
                 if let lat = Double(rest.latitude){
                     if let long = Double(rest.longitude) {
-                        let loc = CLLocationCoordinate2D(latitude: lat, longitude: long)
-//                        self.setPin(loc: loc, title: rest.name)
-                        self.setRestPin(loc: loc, title: rest.name, rest: rest)
+                        let location = CLLocation(latitude: lat, longitude: long)
+                        self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
                     }
                 }
             }
             
-            self.dispMap.region = MKCoordinateRegion(center: self.venueSearchLoc, latitudinalMeters: 1000.0, longitudinalMeters: 1000.0)
-            self.navController = self.tabBarController?.viewControllers![2] as! UINavigationController
-            self.tablevc = self.navController.topViewController as! TableVC
-            self.tablevc.restList = restList
-            self.showSemiModal()
+            self.dispMap.region = MKCoordinateRegion(center: self.currentLocation.coordinate, latitudinalMeters: 1000.0, longitudinalMeters: 1000.0)
+          
+//            self.navController = self.tabBarController?.viewControllers![2] as! UINavigationController
+//            self.tablevc = self.navController.topViewController as! TableVC
+//            self.tablevc.restList = restList
+            
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
+                return
+            }
+            vc.restList = self.calcDistance(restList: restList)
+            self.showSemiModal(vc: vc)
         })
      
+    }
+    
+    func calcDistance(restList:[Restaurant]) -> [Restaurant]{
+        for rest in restList{
+            rest.distance = currentLocation.distance(from: rest.location)
+            rest.distance.round()
+        }
+        return restList
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         inputText.delegate = self
-        let testLoc = CLLocationCoordinate2D(latitude: 35.6776117, longitude: 139.7651235)
-        self.venueSearchLoc = testLoc
-        self.dispMap.region = MKCoordinateRegion(center: testLoc, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-        setPin(loc: testLoc, title: "東京駅")
+        let testLoc = CLLocation(latitude: 35.6776117, longitude: 139.7651235)
+        self.currentLocation = testLoc
+        self.dispMap.region = MKCoordinateRegion(center: testLoc.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+        setPin(loc: testLoc.coordinate, title: "東京駅")
         
         dispMap.delegate = self
 
@@ -97,11 +108,10 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
             guard let unwrapPlacemarks = placemarks else { return }
             guard let firstPlacemark = unwrapPlacemarks.first else { return }
             guard let location = firstPlacemark.location else { return }
-
-            let coordinate = location.coordinate
-            self.venueSearchLoc = coordinate
-            self.setPin(loc: coordinate, title: searchKey)
-            self.dispMap.region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+            
+            self.currentLocation = location
+            self.setPin(loc: location.coordinate, title: searchKey)
+            self.dispMap.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
                     
         })
         
@@ -141,20 +151,13 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
         
     }
     
-    func showSemiModal(){
+    func showSemiModal(vc:SemiModalVC){
         
         let fpc = FloatingPanelController()
                    
         fpc.delegate = self
            
         fpc.surfaceView.cornerRadius = 24.0
-        
-        // セミモーダルビューとなるViewControllerを生成し、contentViewControllerとしてセットする
-//        let vc = SemiModalVC()
-        
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
-            return
-        }
                 
         fpc.set(contentViewController: vc)
                    

@@ -62,7 +62,7 @@ class NetworkGurunaviService {
         let task = session.dataTask(with: req, completionHandler: {
             (data, response, error) in
             session.finishTasksAndInvalidate()
-            print(String(data:data!, encoding:String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
+//            print(String(data:data!, encoding:String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
             self.ParseJSON(data: data!)
             dispatchGroup.leave()
             })

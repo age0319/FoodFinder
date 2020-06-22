@@ -11,25 +11,38 @@ import UIKit
 
 class FPCCell:UITableViewCell{
     
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var restnameLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     
 }
 
 class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let data = ["hoge","fuga","koje","1","2","3","4","4","4","4","4","1","2","3","4","4","4","4","4"]
     @IBOutlet weak var myTableView: UITableView!
+    var restList = [Restaurant]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        restList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "fpccell", for: indexPath) as! FPCCell
-//        cell.label.text = data[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "fpccell", for: indexPath) as! FPCCell
+        
+        let rest = restList[indexPath.row]
+        
+        cell.restnameLabel.text = rest.name
+        
+        cell.distanceLabel.text = String(rest.distance) + "m"
+        
+        let image = rest.image_url.shop_image1
+        
+        if image.isEmpty {
+            cell.imageview.image = UIImage(named: "noimage")
+        }else{
+            cell.imageview.image = UIImage(url: image)
+        }
         
         return cell
     }

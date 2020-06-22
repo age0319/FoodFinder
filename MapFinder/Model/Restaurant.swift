@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 // for save to Restaurant API Result
 class Restaurant {
@@ -18,6 +19,8 @@ class Restaurant {
     var opentime:String
     var access:AccessClass
     var budget:Int
+    var location:CLLocation
+    var distance:Double
     
     init() {
         self.name = String()
@@ -28,6 +31,8 @@ class Restaurant {
         self.opentime = String()
         self.access = AccessClass()
         self.budget = Int()
+        self.location = CLLocation()
+        self.distance = Double()
     }
     
     func set(name:String,latitude:String,longitude:String,url:String,image_url:ImageClass,opentime:String,access:AccessClass,budget:Int){
@@ -39,6 +44,12 @@ class Restaurant {
         self.opentime = opentime
         self.access = access
         self.budget = budget
+        
+        if let lat = Double(latitude){
+            if let lon = Double(longitude){
+                self.location = CLLocation(latitude: lat, longitude: lon)
+            }
+        }
     }
 }
 
