@@ -20,7 +20,6 @@
 		4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A72499B26900EA4EB1 /* Utility.swift */; };
 		4959A2AC2499DEA900EA4EB1 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */; };
 		4959A2AE2499F79A00EA4EB1 /* NetworkGurunaviService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */; };
-		4998D766249C90E9002907BD /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D765249C90E9002907BD /* TableVC.swift */; };
 		4998D768249D8B10002907BD /* SemiModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D767249D8B10002907BD /* SemiModalVC.swift */; };
 		4998D76A249EEB70002907BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D769249EEB70002907BD /* Restaurant.swift */; };
 		4998D76C249EF5E5002907BD /* ResultJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D76B249EF5E5002907BD /* ResultJSON.swift */; };
@@ -46,7 +45,6 @@
 		4959A2A72499B26900EA4EB1 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGurunaviService.swift; sourceTree = "<group>"; };
-		4998D765249C90E9002907BD /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
 		4998D767249D8B10002907BD /* SemiModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalVC.swift; sourceTree = "<group>"; };
 		4998D769249EEB70002907BD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		4998D76B249EF5E5002907BD /* ResultJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultJSON.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			children = (
 				4959A28F2496DEA400EA4EB1 /* MapVC.swift */,
 				4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */,
-				4998D765249C90E9002907BD /* TableVC.swift */,
 				4998D767249D8B10002907BD /* SemiModalVC.swift */,
 				49228B1D24A0B05000CBB1C5 /* DetailVC.swift */,
 			);
@@ -269,7 +266,6 @@
 				4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */,
 				4959A2AC2499DEA900EA4EB1 /* SettingVC.swift in Sources */,
 				4959A2A22497472500EA4EB1 /* RestaurantJSON.swift in Sources */,
-				4998D766249C90E9002907BD /* TableVC.swift in Sources */,
 				4959A2AE2499F79A00EA4EB1 /* NetworkGurunaviService.swift in Sources */,
 				4959A2A42498ABD700EA4EB1 /* RoundButton.swift in Sources */,
 				4959A2902496DEA400EA4EB1 /* MapVC.swift in Sources */,

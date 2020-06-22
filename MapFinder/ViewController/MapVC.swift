@@ -18,12 +18,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     
     var currentLocation = CLLocation()
     var foodChoise = (String(),String())
-    
-    var navController = UINavigationController()
-    var tablevc = TableVC()
-    var modalvc = SemiModalVC()
-    var annotationList = [RestAnnotation]()
-    
+        
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -46,23 +41,18 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         handler.searchAroundVenue(loc: self.currentLocation.coordinate, category: self.foodChoise, completion: {(restList) in
             
             for rest in restList{
-                print(rest.name,rest.budget,rest.latitude)
-                
-                //緯度経度情報がないお店はピンがセットされない。
-                if let lat = Double(rest.latitude){
-                    if let long = Double(rest.longitude) {
-                        let location = CLLocation(latitude: lat, longitude: long)
-                            self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
-                    }
-                }
+                let lat = Double(rest.latitude)
+                let long = Double(rest.longitude)
+                let location = CLLocation(latitude: lat!, longitude: long!)
+                self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
             }
 
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
+            guard let semimodelVC = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
                 return
             }
             
-            vc.restList = self.calcDistance(restList: restList)
-            self.showSemiModal(vc: vc)
+            semimodelVC.restList = self.calcDistance(restList: restList)
+            self.showSemiModal(vc: semimodelVC)
         })
     }
     
@@ -79,37 +69,6 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         dispMap.delegate = self
      }
     
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        guard let searchKey = textField.text else { return false }
-        
-        let geocoder = CLGeocoder()
-    
-        geocoder.geocodeAddressString(searchKey, completionHandler: { (placemarks, error) in
-        
-            guard let unwrapPlacemarks = placemarks else { return }
-            guard let firstPlacemark = unwrapPlacemarks.first else { return }
-            guard let location = firstPlacemark.location else { return }
-            
-            self.currentLocation = location
-            self.setPin(loc: location.coordinate, title: searchKey)
-            self.dispMap.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-                    
-        })
-        
-        return true
-    }
-    
-    func setPin(loc:CLLocationCoordinate2D,title:String){
-        
-        let pin = MKPointAnnotation()
-        pin.coordinate = loc
-        pin.title = title
-        self.dispMap.addAnnotation(pin)
-    }
-    
     func setRestPin(loc:CLLocationCoordinate2D,title:String,rest:Restaurant){
         let pin = RestAnnotation()
         pin.coordinate = loc
@@ -117,13 +76,11 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         pin.rest = rest
         
         self.dispMap.addAnnotation(pin)
-        
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? RestAnnotation {
             print(annotation.title!)
-            print(annotation.rest.access)
         }
     }
     
@@ -145,7 +102,6 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
            return MyFloatingPanelLayout()
        }
 }
-
 
 class RestAnnotation: NSObject,MKAnnotation{
     var title: String?

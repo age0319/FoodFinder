@@ -51,8 +51,7 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rest = restList[indexPath.row]
-        print(rest.id,rest.name,rest.location.coordinate)
+       
     }
     
     override func viewDidLoad() {
@@ -70,5 +69,19 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+}
+
+extension UIImage {
+    public convenience init(url: String) {
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            self.init(data: data)!
+            return
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        self.init()
+    }
 }
 

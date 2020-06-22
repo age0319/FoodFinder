@@ -43,7 +43,6 @@ class SettingVC: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate
         navController = tabBarController?.viewControllers![1] as! UINavigationController
         mapvc = navController.topViewController as! MapVC
         mapvc.foodChoise = categoryList[0]
-        
     }    
     
 }

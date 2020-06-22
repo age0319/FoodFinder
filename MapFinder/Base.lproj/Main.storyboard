@@ -179,7 +179,6 @@
                     <connections>
                         <segue destination="G2a-cz-nNh" kind="relationship" relationship="viewControllers" id="8eP-6f-eW2"/>
                         <segue destination="Psn-8F-Uwf" kind="relationship" relationship="viewControllers" id="fhs-ay-mmv"/>
-                        <segue destination="AOi-sb-hkr" kind="relationship" relationship="viewControllers" id="EXf-kQ-H6J"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fX1-od-gaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -295,118 +294,9 @@
             </objects>
             <point key="canvasLocation" x="-533.33333333333337" y="521.65178571428567"/>
         </scene>
-        <!--Shop-->
-        <scene sceneID="vTd-zR-47l">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AOi-sb-hkr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shop" image="list.dash" catalog="system" id="L3T-Zq-HNu"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KOk-yT-fjk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Dg5-sv-oXo" kind="relationship" relationship="rootViewController" id="5Gx-51-wdJ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ic-6E-PFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-533.33333333333337" y="1275.6696428571429"/>
-        </scene>
-        <!--お店一覧-->
-        <scene sceneID="TcY-OS-6Hz">
-            <objects>
-                <tableViewController storyboardIdentifier="fpc_content" id="Dg5-sv-oXo" customClass="TableVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bEl-gg-C4A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="L0P-PU-QdL" customClass="ShopCell" customModule="FoodFinder">
-                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L0P-PU-QdL" id="rWF-iN-wx2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-wk-StF">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="HmS-rF-6SV"/>
-                                                <constraint firstAttribute="width" constant="100" id="OAb-Bm-202"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お店の名前" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-gj-vLI">
-                                            <rect key="frame" x="120" y="10" width="274" height="12"/>
-                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="価格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXm-6b-dQW">
-                                            <rect key="frame" x="120" y="54" width="20.5" height="12"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="営業時間" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-sw-IlW">
-                                            <rect key="frame" x="120" y="32" width="274" height="12"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最寄駅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY9-R5-fmP">
-                                            <rect key="frame" x="160.5" y="54" width="31" height="12"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="l8f-sw-IlW" secondAttribute="trailing" constant="20" id="BL0-Hl-eUY"/>
-                                        <constraint firstItem="EY9-R5-fmP" firstAttribute="top" secondItem="l8f-sw-IlW" secondAttribute="bottom" constant="10" id="D9w-94-jtl"/>
-                                        <constraint firstItem="bXm-6b-dQW" firstAttribute="leading" secondItem="X0d-wk-StF" secondAttribute="trailing" constant="20" id="J84-pC-fbM"/>
-                                        <constraint firstItem="bXm-6b-dQW" firstAttribute="top" secondItem="l8f-sw-IlW" secondAttribute="bottom" constant="10" id="KNi-Wl-8fj"/>
-                                        <constraint firstAttribute="bottom" secondItem="X0d-wk-StF" secondAttribute="bottom" id="Mbo-GG-csV"/>
-                                        <constraint firstItem="dPc-gj-vLI" firstAttribute="leading" secondItem="X0d-wk-StF" secondAttribute="trailing" constant="20" id="NGc-hZ-4rR"/>
-                                        <constraint firstItem="l8f-sw-IlW" firstAttribute="top" secondItem="dPc-gj-vLI" secondAttribute="bottom" constant="10" id="Vav-l0-tC6"/>
-                                        <constraint firstItem="EY9-R5-fmP" firstAttribute="leading" secondItem="bXm-6b-dQW" secondAttribute="trailing" constant="20" id="W93-OB-1g5"/>
-                                        <constraint firstItem="X0d-wk-StF" firstAttribute="leading" secondItem="rWF-iN-wx2" secondAttribute="leading" id="eT3-FJ-T3x"/>
-                                        <constraint firstAttribute="trailing" secondItem="dPc-gj-vLI" secondAttribute="trailing" constant="20" id="mWv-8b-Bij"/>
-                                        <constraint firstItem="X0d-wk-StF" firstAttribute="top" secondItem="rWF-iN-wx2" secondAttribute="top" id="tmW-AX-WZv"/>
-                                        <constraint firstItem="l8f-sw-IlW" firstAttribute="leading" secondItem="X0d-wk-StF" secondAttribute="trailing" constant="20" id="yKe-3L-59S"/>
-                                        <constraint firstItem="dPc-gj-vLI" firstAttribute="top" secondItem="rWF-iN-wx2" secondAttribute="top" constant="10" id="z7h-Ai-NwI"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="imageview" destination="X0d-wk-StF" id="gud-Tw-i7O"/>
-                                    <outlet property="nearStation" destination="EY9-R5-fmP" id="JEb-o4-t0u"/>
-                                    <outlet property="opentime" destination="l8f-sw-IlW" id="PcG-v5-xOx"/>
-                                    <outlet property="price" destination="bXm-6b-dQW" id="Oks-Ou-n9e"/>
-                                    <outlet property="shopname" destination="dPc-gj-vLI" id="Uab-ZX-9c5"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Dg5-sv-oXo" id="yzu-D4-a95"/>
-                            <outlet property="delegate" destination="Dg5-sv-oXo" id="QkR-ku-BXl"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="お店一覧" id="3uq-GJ-OQS"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sIf-Ns-9Wr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="377" y="1276"/>
-        </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
