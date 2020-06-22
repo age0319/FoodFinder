@@ -51,6 +51,15 @@ class Restaurant {
             }
         }
     }
+    
+    func setDistance(loc:CLLocation){
+        if self.location.coordinate.latitude == 0.0 {
+            return
+        }else{
+            self.distance = loc.distance(from: self.location)
+            self.distance.round()
+        }
+    }
 }
 
 class ImageClass {

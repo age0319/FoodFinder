@@ -71,8 +71,7 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
     
     func calcDistance(restList:[Restaurant]) -> [Restaurant]{
         for rest in restList{
-            rest.distance = currentLocation.distance(from: rest.location)
-            rest.distance.round()
+            rest.setDistance(loc: currentLocation)
         }
         return restList
     }
@@ -164,6 +163,10 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
         // セミモーダルビューを表示する
         fpc.addPanel(toParent: self)
     }
+    
+    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+           return MyFloatingPanelLayout()
+       }
 }
 
 
@@ -176,5 +179,20 @@ class RestAnnotation: NSObject,MKAnnotation{
         self.title = String()
         self.coordinate = CLLocationCoordinate2D()
         self.rest = Restaurant()
+    }
+}
+
+class MyFloatingPanelLayout: FloatingPanelLayout {
+    public var initialPosition: FloatingPanelPosition {
+        return .half
+    }
+
+    public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        switch position {
+            case .full: return 16.0 // A top inset from safe area
+            case .half: return 216.0 // A bottom inset from the safe area
+            case .tip: return 44.0 // A bottom inset from the safe area
+            default: return nil // Or `case .hidden: return nil`
+        }
     }
 }

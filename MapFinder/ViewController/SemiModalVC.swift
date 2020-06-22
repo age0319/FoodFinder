@@ -14,6 +14,7 @@ class FPCCell:UITableViewCell{
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var restnameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var opentimeLabel: UILabel!
     
 }
 
@@ -36,6 +37,8 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         cell.distanceLabel.text = String(rest.distance) + "m"
         
+        cell.opentimeLabel.text = String(rest.opentime)
+        
         let image = rest.image_url.shop_image1
         
         if image.isEmpty {
@@ -47,9 +50,16 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rest = restList[indexPath.row]
+        print(rest.name,rest.location.coordinate)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
     }
+    
 }
+
