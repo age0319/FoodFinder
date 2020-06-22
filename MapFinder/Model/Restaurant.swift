@@ -11,6 +11,7 @@ import MapKit
 
 // for save to Restaurant API Result
 class Restaurant {
+    var id:Int
     var name:String
     var latitude:String
     var longitude:String
@@ -23,6 +24,7 @@ class Restaurant {
     var distance:Double
     
     init() {
+        self.id = Int()
         self.name = String()
         self.latitude = String()
         self.longitude = String()
@@ -35,7 +37,8 @@ class Restaurant {
         self.distance = Double()
     }
     
-    func set(name:String,latitude:String,longitude:String,url:String,image_url:ImageClass,opentime:String,access:AccessClass,budget:Int){
+    func set(id:Int,name:String,latitude:String,longitude:String,url:String,image_url:ImageClass,opentime:String,access:AccessClass,budget:Int){
+        self.id = id
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
@@ -52,13 +55,9 @@ class Restaurant {
         }
     }
     
-    func setDistance(loc:CLLocation){
-        if self.location.coordinate.latitude == 0.0 {
-            return
-        }else{
-            self.distance = loc.distance(from: self.location)
-            self.distance.round()
-        }
+    func setDistance(loc:CLLocation){       
+        self.distance = loc.distance(from: self.location)
+        self.distance.round()
     }
 }
 

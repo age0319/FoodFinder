@@ -37,7 +37,7 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         cell.distanceLabel.text = String(rest.distance) + "m"
         
-        cell.opentimeLabel.text = String(rest.opentime)
+        cell.opentimeLabel.text = String(rest.access.station)
         
         let image = rest.image_url.shop_image1
         
@@ -52,13 +52,22 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let rest = restList[indexPath.row]
-        print(rest.name,rest.location.coordinate)
+        print(rest.id,rest.name,rest.location.coordinate)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexpath = self.myTableView.indexPathForSelectedRow{
+            let rest = restList[indexpath.row]
+            let controller = segue.destination as! DetailVC
+            controller.title = rest.name
+            controller.link = rest.url
+        }
     }
     
 }

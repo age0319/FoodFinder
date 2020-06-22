@@ -10,9 +10,10 @@ import UIKit
 import MapKit
 import FloatingPanel
 
-class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingPanelControllerDelegate{
 
-    @IBOutlet weak var inputText: UITextField!
+
+class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate{
+    
     @IBOutlet weak var dispMap: MKMapView!
     
     var currentLocation = CLLocation()
@@ -20,6 +21,8 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
     
     var navController = UINavigationController()
     var tablevc = TableVC()
+    var modalvc = SemiModalVC()
+    var annotationList = [RestAnnotation]()
     
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
@@ -49,24 +52,18 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
                 if let lat = Double(rest.latitude){
                     if let long = Double(rest.longitude) {
                         let location = CLLocation(latitude: lat, longitude: long)
-                        self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
+                            self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
                     }
                 }
             }
-            
-            self.dispMap.region = MKCoordinateRegion(center: self.currentLocation.coordinate, latitudinalMeters: 1000.0, longitudinalMeters: 1000.0)
-          
-//            self.navController = self.tabBarController?.viewControllers![2] as! UINavigationController
-//            self.tablevc = self.navController.topViewController as! TableVC
-//            self.tablevc.restList = restList
-            
+
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
                 return
             }
+            
             vc.restList = self.calcDistance(restList: restList)
             self.showSemiModal(vc: vc)
         })
-     
     }
     
     func calcDistance(restList:[Restaurant]) -> [Restaurant]{
@@ -79,26 +76,14 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        inputText.delegate = self
-        let testLoc = CLLocation(latitude: 35.6776117, longitude: 139.7651235)
-        self.currentLocation = testLoc
-        self.dispMap.region = MKCoordinateRegion(center: testLoc.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-        setPin(loc: testLoc.coordinate, title: "東京駅")
-        
         dispMap.delegate = self
-
      }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(foodChoise)
-    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        guard var searchKey = textField.text else { return false }
-        
-        searchKey = "東京駅"
+        guard let searchKey = textField.text else { return false }
         
         let geocoder = CLGeocoder()
     
@@ -135,19 +120,11 @@ class MapVC: UIViewController, UITextFieldDelegate, MKMapViewDelegate, FloatingP
         
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        // セミモーダルビューを非表示にする
-//        fpc.removePanelFromParent(animated: true)
-//    }
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? RestAnnotation {
             print(annotation.title!)
             print(annotation.rest.access)
-            self.dispMap.region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
         }
-        
     }
     
     func showSemiModal(vc:SemiModalVC){

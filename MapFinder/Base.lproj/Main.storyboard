@@ -109,6 +109,7 @@
                                             <outlet property="imageview" destination="aXk-Hb-N0v" id="TGE-OC-ODe"/>
                                             <outlet property="opentimeLabel" destination="V9l-mz-2z7" id="7bT-AV-FiY"/>
                                             <outlet property="restnameLabel" destination="76f-c9-Zer" id="Yri-yD-5KV"/>
+                                            <segue destination="Sde-fA-olt" kind="show" id="RvV-cS-F0m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -130,6 +131,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JgY-wi-Fnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1322" y="522"/>
+        </scene>
+        <!--DetailVC-->
+        <scene sceneID="an1-hV-Cbc">
+            <objects>
+                <viewController id="Sde-fA-olt" customClass="DetailVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W4n-s7-xWa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f96-l6-93I">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1Xc-He-VUg" firstAttribute="bottom" secondItem="f96-l6-93I" secondAttribute="bottom" id="4Di-rJ-pAi"/>
+                            <constraint firstItem="f96-l6-93I" firstAttribute="top" secondItem="1Xc-He-VUg" secondAttribute="top" id="8Lf-S1-Phg"/>
+                            <constraint firstItem="1Xc-He-VUg" firstAttribute="trailing" secondItem="f96-l6-93I" secondAttribute="trailing" id="Qum-RG-mPn"/>
+                            <constraint firstItem="f96-l6-93I" firstAttribute="leading" secondItem="1Xc-He-VUg" secondAttribute="leading" id="XIq-P8-73k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Xc-He-VUg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZW0-I4-Pwu"/>
+                    <connections>
+                        <outlet property="webview" destination="f96-l6-93I" id="mA6-OR-wth"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPL-0K-88z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2123" y="520"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8W6-DB-vIb">
@@ -158,19 +194,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="東京駅" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-F1-lAW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="sET-7J-T1b"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                            </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-O1-xNd">
-                                <rect key="frame" x="0.0" y="122" width="414" height="691"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-mj-fjB" customClass="RoundButton" customModule="FoodFinder" customModuleProvider="target">
-                                <rect key="frame" x="344" y="723" width="50" height="50"/>
+                                <rect key="frame" x="344" y="693" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="J0T-pk-ksf"/>
@@ -188,7 +216,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-MK-Zcc" customClass="RoundButton" customModule="FoodFinder" customModuleProvider="target">
-                                <rect key="frame" x="344" y="653" width="50" height="50"/>
+                                <rect key="frame" x="344" y="623" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="1cz-CP-mx8"/>
@@ -209,24 +237,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LbE-mj-fjB" secondAttribute="bottom" constant="40" id="0L8-Bg-r8L"/>
-                            <constraint firstItem="ek3-F1-lAW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1h6-WB-sLg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LbE-mj-fjB" secondAttribute="bottom" constant="70" id="0L8-Bg-r8L"/>
                             <constraint firstItem="i7B-O1-xNd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="93M-mj-iDu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uLS-MK-Zcc" secondAttribute="trailing" constant="20" id="LV8-t4-pr4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i7B-O1-xNd" secondAttribute="bottom" id="TRb-5K-thI"/>
-                            <constraint firstItem="i7B-O1-xNd" firstAttribute="top" secondItem="ek3-F1-lAW" secondAttribute="bottom" id="Tfj-Zb-qSu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ek3-F1-lAW" secondAttribute="trailing" id="Xls-FL-jW7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LbE-mj-fjB" secondAttribute="trailing" constant="20" id="hTs-83-tYM"/>
                             <constraint firstItem="LbE-mj-fjB" firstAttribute="top" secondItem="uLS-MK-Zcc" secondAttribute="bottom" constant="20" id="mzx-gD-fbK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i7B-O1-xNd" secondAttribute="trailing" id="sIE-yu-GaC"/>
-                            <constraint firstItem="ek3-F1-lAW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vXw-gR-yE4"/>
+                            <constraint firstItem="i7B-O1-xNd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yIR-UM-gEH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="地図" id="ZtU-Ql-E6L"/>
                     <connections>
                         <outlet property="dispMap" destination="i7B-O1-xNd" id="OWW-gV-t64"/>
-                        <outlet property="inputText" destination="ek3-F1-lAW" id="oIg-k1-YaX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
