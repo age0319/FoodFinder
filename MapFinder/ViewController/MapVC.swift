@@ -10,9 +10,15 @@ import UIKit
 import MapKit
 import FloatingPanel
 
+protocol RestDelegate {
+    func hoge(hoge:String)
+}
 
-
-class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate{
+class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestDelegate{
+    func hoge(hoge: String) {
+        print(hoge)
+    }
+    
     
     @IBOutlet weak var dispMap: MKMapView!
     var fpc:FloatingPanelController!
@@ -94,13 +100,15 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
            
         fpc.surfaceView.cornerRadius = 24.0
                 
-        guard let semimodelVC = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
             return
         }
         
-        semimodelVC.restList = restList
+        vc.restList = restList
         
-        fpc.set(contentViewController: semimodelVC)
+        vc.delegate = self
+        
+        fpc.set(contentViewController: vc)
                    
         fpc.addPanel(toParent: self)
     }

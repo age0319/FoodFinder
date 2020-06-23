@@ -14,7 +14,9 @@ class FPCCell:UITableViewCell{
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var restnameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var opentimeLabel: UILabel!
+    @IBOutlet weak var station: UILabel!
+    @IBOutlet weak var budget: UILabel!
+    
     
 }
 
@@ -22,6 +24,7 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var myTableView: UITableView!
     var restList = [Restaurant]()
+    var delegate:RestDelegate?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         restList.count
@@ -37,7 +40,10 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         cell.distanceLabel.text = String(rest.distance) + "m"
         
-        cell.opentimeLabel.text = String(rest.access.station)
+        cell.station.text = String(rest.access.station)
+        
+        cell.budget.text = "平均予算:" + String(rest.budget) + "円"
+        
         
         let image = rest.image_url.shop_image1
         
@@ -51,7 +57,7 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        delegate?.hoge(hoge: String(indexPath.row))
     }
     
     override func viewDidLoad() {
