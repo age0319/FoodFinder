@@ -19,6 +19,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     
     var currentLocation = CLLocation()
     var foodChoise = (String(),String())
+    var restList = [Restaurant]()
     
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
@@ -47,8 +48,8 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
                 let location = CLLocation(latitude: lat!, longitude: long!)
                 self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
             }
-            let rests = self.calcDistance(restList: restList)
-            self.showSemiModal(restList: rests)
+            self.restList = self.calcDistance(restList: restList)
+            self.showSemiModal(restList: self.restList)
         })
     }
     
@@ -78,6 +79,11 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         if let annotation = view.annotation as? RestAnnotation {
             self.showSemiModal(restList: [annotation.rest])
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        removeSemiModal()
+        showSemiModal(restList: restList)
     }
     
     func showSemiModal(restList:[Restaurant]){
