@@ -15,10 +15,11 @@ import FloatingPanel
 class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate{
     
     @IBOutlet weak var dispMap: MKMapView!
+    var fpc:FloatingPanelController!
     
     var currentLocation = CLLocation()
     var foodChoise = (String(),String())
-        
+    
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -46,13 +47,8 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
                 let location = CLLocation(latitude: lat!, longitude: long!)
                 self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
             }
-
-            guard let semimodelVC = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
-                return
-            }
-            
-            semimodelVC.restList = self.calcDistance(restList: restList)
-            self.showSemiModal(vc: semimodelVC)
+            let rests = self.calcDistance(restList: restList)
+            self.showSemiModal(restList: rests)
         })
     }
     
@@ -65,7 +61,6 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         dispMap.delegate = self
      }
     
@@ -79,23 +74,33 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        removeSemiModal()
         if let annotation = view.annotation as? RestAnnotation {
-            print(annotation.title!)
+            self.showSemiModal(restList: [annotation.rest])
         }
     }
     
-    func showSemiModal(vc:SemiModalVC){
+    func showSemiModal(restList:[Restaurant]){
+                           
+        fpc = FloatingPanelController()
         
-        let fpc = FloatingPanelController()
-                   
         fpc.delegate = self
            
         fpc.surfaceView.cornerRadius = 24.0
                 
-        fpc.set(contentViewController: vc)
+        guard let semimodelVC = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
+            return
+        }
+        
+        semimodelVC.restList = restList
+        
+        fpc.set(contentViewController: semimodelVC)
                    
-        // セミモーダルビューを表示する
         fpc.addPanel(toParent: self)
+    }
+    
+    func removeSemiModal(){
+        fpc.removePanelFromParent(animated: false)
     }
     
     func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
