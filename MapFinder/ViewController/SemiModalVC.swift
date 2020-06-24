@@ -17,14 +17,15 @@ class FPCCell:UITableViewCell{
     @IBOutlet weak var station: UILabel!
     @IBOutlet weak var budget: UILabel!
     
-    
 }
 
+
 class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     @IBOutlet weak var myTableView: UITableView!
     var restList = [Restaurant]()
-    var delegate:RestDelegate?
+    var backup = [Restaurant]()
+    var delegate:RestMapDelegate?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         restList.count
@@ -57,7 +58,7 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.hoge(hoge: String(indexPath.row))
+        delegate?.selectAnnotation(index: indexPath.row)
     }
     
     override func viewDidLoad() {

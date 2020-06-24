@@ -125,7 +125,6 @@
                                             <outlet property="imageview" destination="aXk-Hb-N0v" id="TGE-OC-ODe"/>
                                             <outlet property="restnameLabel" destination="76f-c9-Zer" id="Yri-yD-5KV"/>
                                             <outlet property="station" destination="V9l-mz-2z7" id="xGK-3a-Mah"/>
-                                            <segue destination="Sde-fA-olt" kind="show" id="RvV-cS-F0m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -153,11 +152,11 @@
             <objects>
                 <viewController id="Sde-fA-olt" customClass="DetailVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W4n-s7-xWa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f96-l6-93I">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>

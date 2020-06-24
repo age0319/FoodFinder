@@ -10,15 +10,15 @@ import UIKit
 import MapKit
 import FloatingPanel
 
-protocol RestDelegate {
-    func hoge(hoge:String)
+protocol RestMapDelegate {
+    func selectAnnotation(index:Int)
 }
 
-class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestDelegate{
-    func hoge(hoge: String) {
-        print(hoge)
+class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestMapDelegate{
+
+    func selectAnnotation(index: Int) {
+        dispMap.selectAnnotation(annotations[index], animated: true)
     }
-    
     
     @IBOutlet weak var dispMap: MKMapView!
     var fpc:FloatingPanelController!
@@ -26,6 +26,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     var currentLocation = CLLocation()
     var foodChoise = (String(),String())
     var restList = [Restaurant]()
+    var annotations = [RestAnnotation]()
     
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
@@ -69,27 +70,34 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         dispMap.delegate = self
+        
      }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        fpc.removePanelFromParent(animated: false)
+        annotations.removeAll()
+    }
     
     func setRestPin(loc:CLLocationCoordinate2D,title:String,rest:Restaurant){
         let pin = RestAnnotation()
         pin.coordinate = loc
         pin.title = title
         pin.rest = rest
-        
+        annotations.append(pin)
         self.dispMap.addAnnotation(pin)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        removeSemiModal()
-        if let annotation = view.annotation as? RestAnnotation {
-            self.showSemiModal(restList: [annotation.rest])
-        }
+//        removeSemiModal()
+//        if let annotation = view.annotation as? RestAnnotation {
+//            self.showSemiModal(restList: [annotation.rest])
+//        }
+        
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        removeSemiModal()
-        showSemiModal(restList: restList)
+//        removeSemiModal()
+//        showSemiModal(restList: restList)
     }
     
     func showSemiModal(restList:[Restaurant]){
