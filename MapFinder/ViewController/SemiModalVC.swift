@@ -61,13 +61,4 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         myTableView.dataSource = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexpath = self.myTableView.indexPathForSelectedRow{
-            let rest = restList[indexpath.row]
-            let controller = segue.destination as! DetailVC
-            controller.title = rest.name
-            controller.link = rest.url
-        }
-    }
-    
 }

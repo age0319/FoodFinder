@@ -48,7 +48,7 @@
         <!--Semi ModalVC-->
         <scene sceneID="XMQ-wt-X3W">
             <objects>
-                <viewController storyboardIdentifier="fpc" id="U7e-k6-lFJ" customClass="SemiModalVC" customModule="FoodFinder" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="all" id="U7e-k6-lFJ" customClass="SemiModalVC" customModule="FoodFinder" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oks-OI-zRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,13 +70,13 @@
                                                         <constraint firstAttribute="width" constant="100" id="7qP-Qi-eby"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RestName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76f-c9-Zer">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お店の名前" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76f-c9-Zer">
                                                     <rect key="frame" x="110" y="10" width="263" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-kt-2bT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距離" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-kt-2bT">
                                                     <rect key="frame" x="110" y="37" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="MVE-fv-mts"/>
@@ -85,7 +85,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-mz-2z7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最寄駅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-mz-2z7">
                                                     <rect key="frame" x="110" y="64" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Dxa-vi-IYE"/>
@@ -94,7 +94,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-uV-XhL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="予算" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-uV-XhL">
                                                     <rect key="frame" x="230" y="37" width="120" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="Mwa-OB-Vcs"/>
@@ -130,7 +130,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ILB-kw-jPE" firstAttribute="trailing" secondItem="evf-tk-hYV" secondAttribute="trailing" id="HVd-Le-GyX"/>
                             <constraint firstItem="evf-tk-hYV" firstAttribute="leading" secondItem="ILB-kw-jPE" secondAttribute="leading" id="qd0-uW-yQF"/>
@@ -147,40 +146,56 @@
             </objects>
             <point key="canvasLocation" x="1321.7391304347827" y="521.65178571428567"/>
         </scene>
-        <!--DetailVC-->
-        <scene sceneID="an1-hV-Cbc">
+        <!--SelectedVC-->
+        <scene sceneID="Wlt-Pr-b7k">
             <objects>
-                <viewController id="Sde-fA-olt" customClass="DetailVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W4n-s7-xWa">
+                <viewController storyboardIdentifier="selected" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AKZ-jm-kfx" customClass="SelectedVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ogH-tD-XR0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f96-l6-93I">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お店名" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-tv-QRt">
+                                <rect key="frame" x="10" y="94" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31Q-yw-KyN">
+                                <rect key="frame" x="10" y="122" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Dt2-ii-LpY"/>
+                                    <constraint firstAttribute="height" constant="100" id="MRn-JF-ccX"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1I-SM-orq">
+                                <rect key="frame" x="120" y="122" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="G1r-5U-MSG"/>
+                                    <constraint firstAttribute="width" constant="100" id="Rhd-C1-0H6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1Xc-He-VUg" firstAttribute="bottom" secondItem="f96-l6-93I" secondAttribute="bottom" id="4Di-rJ-pAi"/>
-                            <constraint firstItem="f96-l6-93I" firstAttribute="top" secondItem="1Xc-He-VUg" secondAttribute="top" id="8Lf-S1-Phg"/>
-                            <constraint firstItem="1Xc-He-VUg" firstAttribute="trailing" secondItem="f96-l6-93I" secondAttribute="trailing" id="Qum-RG-mPn"/>
-                            <constraint firstItem="f96-l6-93I" firstAttribute="leading" secondItem="1Xc-He-VUg" secondAttribute="leading" id="XIq-P8-73k"/>
+                            <constraint firstItem="gxO-tv-QRt" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="CRu-9x-oE9"/>
+                            <constraint firstItem="31Q-yw-KyN" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Cae-SJ-Nfw"/>
+                            <constraint firstItem="gxO-tv-QRt" firstAttribute="top" secondItem="XT4-d2-Hma" secondAttribute="top" constant="50" id="dRA-aY-0dk"/>
+                            <constraint firstItem="W1I-SM-orq" firstAttribute="leading" secondItem="31Q-yw-KyN" secondAttribute="trailing" constant="10" id="fdD-5X-EBW"/>
+                            <constraint firstItem="31Q-yw-KyN" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="kSX-Hu-606"/>
+                            <constraint firstItem="W1I-SM-orq" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="oEe-z1-QSD"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="gxO-tv-QRt" secondAttribute="trailing" constant="10" id="vDk-Ba-Xzv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="1Xc-He-VUg"/>
+                        <viewLayoutGuide key="safeArea" id="XT4-d2-Hma"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZW0-I4-Pwu"/>
                     <connections>
-                        <outlet property="webview" destination="f96-l6-93I" id="mA6-OR-wth"/>
+                        <outlet property="image1" destination="31Q-yw-KyN" id="eta-HU-awf"/>
+                        <outlet property="image2" destination="W1I-SM-orq" id="thE-Zt-94i"/>
+                        <outlet property="shopname" destination="gxO-tv-QRt" id="Lhm-z9-eud"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DPL-0K-88z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cln-a3-cKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="520"/>
+            <point key="canvasLocation" x="1322" y="1181"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8W6-DB-vIb">

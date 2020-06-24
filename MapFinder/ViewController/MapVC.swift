@@ -56,7 +56,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
                 self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
             }
             self.restList = self.calcDistance(restList: restList)
-            self.showSemiModal(restList: self.restList)
+            self.showSemiModal(restList: self.restList,storyBoardID: "all")
         })
     }
     
@@ -87,36 +87,41 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        removeSemiModal()
-//        if let annotation = view.annotation as? RestAnnotation {
-//            self.showSemiModal(restList: [annotation.rest])
-//        }
+        removeSemiModal()
+        if let annotation = view.annotation as? RestAnnotation {
+            self.showSemiModal(restList: [annotation.rest],storyBoardID: "selected")
+        }
         
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-//        removeSemiModal()
-//        showSemiModal(restList: restList)
+        removeSemiModal()
+        showSemiModal(restList: restList,storyBoardID: "all")
     }
     
-    func showSemiModal(restList:[Restaurant]){
+    func showSemiModal(restList:[Restaurant],storyBoardID:String){
                            
         fpc = FloatingPanelController()
         
         fpc.delegate = self
            
         fpc.surfaceView.cornerRadius = 24.0
-                
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "fpc") as? SemiModalVC else {
-            return
+    
+        if storyBoardID == "all"{
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: storyBoardID) as? SemiModalVC else {
+                return
+            }
+            vc.restList = restList
+            vc.delegate = self
+            fpc.set(contentViewController: vc)
+        } else if storyBoardID == "selected"{
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: storyBoardID) as? SelectedVC else {
+                return
+            }
+            vc.shop = restList[0]
+            fpc.set(contentViewController: vc)
         }
-        
-        vc.restList = restList
-        
-        vc.delegate = self
-        
-        fpc.set(contentViewController: vc)
-                   
+                           
         fpc.addPanel(toParent: self)
     }
     
