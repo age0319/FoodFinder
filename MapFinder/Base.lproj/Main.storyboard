@@ -76,16 +76,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距離" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-kt-2bT">
-                                                    <rect key="frame" x="110" y="37" width="100" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距離" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-kt-2bT">
+                                                    <rect key="frame" x="110" y="37" width="60" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="MVE-fv-mts"/>
+                                                        <constraint firstAttribute="width" constant="60" id="MVE-fv-mts"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最寄駅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-mz-2z7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最寄駅" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-mz-2z7">
                                                     <rect key="frame" x="110" y="64" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Dxa-vi-IYE"/>
@@ -94,8 +94,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="予算" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-uV-XhL">
-                                                    <rect key="frame" x="230" y="37" width="120" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="予算" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-uV-XhL">
+                                                    <rect key="frame" x="190" y="37" width="120" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="Mwa-OB-Vcs"/>
                                                     </constraints>
@@ -174,16 +174,45 @@
                                     <constraint firstAttribute="width" constant="100" id="Rhd-C1-0H6"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tE-5c-zI6" customClass="RoundButton" customModule="FoodFinder" customModuleProvider="target">
+                                <rect key="frame" x="240" y="122" width="68" height="22"/>
+                                <state key="normal" title="Route" image="info.circle" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEw-zT-OLz">
+                                <rect key="frame" x="240" y="154" width="58.5" height="22"/>
+                                <state key="normal" title="WEB" image="globe" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ed-dSw">
+                                <rect key="frame" x="240" y="186" width="57" height="22"/>
+                                <state key="normal" title="TEL" image="teletype" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gxO-tv-QRt" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="CRu-9x-oE9"/>
                             <constraint firstItem="31Q-yw-KyN" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Cae-SJ-Nfw"/>
+                            <constraint firstItem="6tE-5c-zI6" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="OFd-EQ-x3e"/>
+                            <constraint firstItem="YEw-zT-OLz" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="20" id="Y33-Wx-H4K"/>
                             <constraint firstItem="gxO-tv-QRt" firstAttribute="top" secondItem="XT4-d2-Hma" secondAttribute="top" constant="50" id="dRA-aY-0dk"/>
+                            <constraint firstItem="YEw-zT-OLz" firstAttribute="top" secondItem="6tE-5c-zI6" secondAttribute="bottom" constant="10" id="dr3-E1-JNb"/>
                             <constraint firstItem="W1I-SM-orq" firstAttribute="leading" secondItem="31Q-yw-KyN" secondAttribute="trailing" constant="10" id="fdD-5X-EBW"/>
+                            <constraint firstItem="yFD-ed-dSw" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="20" id="gCv-BS-vfH"/>
                             <constraint firstItem="31Q-yw-KyN" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="kSX-Hu-606"/>
+                            <constraint firstItem="yFD-ed-dSw" firstAttribute="top" secondItem="YEw-zT-OLz" secondAttribute="bottom" constant="10" id="mPu-CT-TBh"/>
                             <constraint firstItem="W1I-SM-orq" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="oEe-z1-QSD"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="gxO-tv-QRt" secondAttribute="trailing" constant="10" id="vDk-Ba-Xzv"/>
+                            <constraint firstItem="6tE-5c-zI6" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="20" id="zD8-Hm-glL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XT4-d2-Hma"/>
                     </view>
@@ -195,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cln-a3-cKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="1181"/>
+            <point key="canvasLocation" x="1321.7391304347827" y="1180.5803571428571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8W6-DB-vIb">
@@ -326,9 +355,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
+        <image name="teletype" catalog="system" width="128" height="98"/>
     </resources>
 </document>
