@@ -40,4 +40,10 @@ class SelectedVC:UIViewController{
         }
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! WebVC
+        controller.title = shop.name
+        controller.link = shop.url
+    }
 }

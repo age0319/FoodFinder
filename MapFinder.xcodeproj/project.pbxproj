@@ -10,6 +10,7 @@
 		49228B2024A324EB00CBB1C5 /* RestAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49228B1F24A324EB00CBB1C5 /* RestAnnotation.swift */; };
 		49228B2224A325A100CBB1C5 /* MyFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49228B2124A325A100CBB1C5 /* MyFloatingPanelLayout.swift */; };
 		49228B2424A3583A00CBB1C5 /* SelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49228B2324A3583A00CBB1C5 /* SelectedVC.swift */; };
+		49228B2624A3769000CBB1C5 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49228B2524A3769000CBB1C5 /* WebVC.swift */; };
 		4959A28C2496DEA400EA4EB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A28B2496DEA400EA4EB1 /* AppDelegate.swift */; };
 		4959A28E2496DEA400EA4EB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A28D2496DEA400EA4EB1 /* SceneDelegate.swift */; };
 		4959A2902496DEA400EA4EB1 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A28F2496DEA400EA4EB1 /* MapVC.swift */; };
@@ -33,6 +34,7 @@
 		49228B1F24A324EB00CBB1C5 /* RestAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAnnotation.swift; sourceTree = "<group>"; };
 		49228B2124A325A100CBB1C5 /* MyFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFloatingPanelLayout.swift; sourceTree = "<group>"; };
 		49228B2324A3583A00CBB1C5 /* SelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedVC.swift; sourceTree = "<group>"; };
+		49228B2524A3769000CBB1C5 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		4959A2882496DEA400EA4EB1 /* FoodFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4959A28B2496DEA400EA4EB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4959A28D2496DEA400EA4EB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				4998D767249D8B10002907BD /* SemiModalVC.swift */,
 				49228B2124A325A100CBB1C5 /* MyFloatingPanelLayout.swift */,
 				49228B2324A3583A00CBB1C5 /* SelectedVC.swift */,
+				49228B2524A3769000CBB1C5 /* WebVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				4959A2A62499AED800EA4EB1 /* NetworkFourSquareService.swift in Sources */,
 				4998D76C249EF5E5002907BD /* ResultJSON.swift in Sources */,
 				4959A28E2496DEA400EA4EB1 /* SceneDelegate.swift in Sources */,
+				49228B2624A3769000CBB1C5 /* WebVC.swift in Sources */,
 				49228B2424A3583A00CBB1C5 /* SelectedVC.swift in Sources */,
 				4998D768249D8B10002907BD /* SemiModalVC.swift in Sources */,
 			);

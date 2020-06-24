@@ -190,6 +190,9 @@
                                 <state key="normal" title="WEB" image="globe" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="g02-rm-4hh" kind="show" id="7Rt-zh-z1t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ed-dSw">
                                 <rect key="frame" x="240" y="186" width="57" height="22"/>
@@ -225,6 +228,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cln-a3-cKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1321.7391304347827" y="1180.5803571428571"/>
+        </scene>
+        <!--WebVC-->
+        <scene sceneID="9FD-yg-rHo">
+            <objects>
+                <viewController id="g02-rm-4hh" customClass="WebVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gqx-Gy-smV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYU-qL-arO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QYO-aR-ZPm" firstAttribute="bottom" secondItem="LYU-qL-arO" secondAttribute="bottom" id="Aey-PA-WPY"/>
+                            <constraint firstItem="QYO-aR-ZPm" firstAttribute="trailing" secondItem="LYU-qL-arO" secondAttribute="trailing" id="Do2-Ol-gnM"/>
+                            <constraint firstItem="LYU-qL-arO" firstAttribute="leading" secondItem="QYO-aR-ZPm" secondAttribute="leading" id="Z1P-Us-egN"/>
+                            <constraint firstItem="LYU-qL-arO" firstAttribute="top" secondItem="QYO-aR-ZPm" secondAttribute="top" id="tf3-m9-7Aw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QYO-aR-ZPm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7vJ-Od-5nR"/>
+                    <connections>
+                        <outlet property="webView" destination="LYU-qL-arO" id="LiO-4h-COi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h25-CS-T1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="1179"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8W6-DB-vIb">
