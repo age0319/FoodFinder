@@ -19,7 +19,6 @@ class FPCCell:UITableViewCell{
     
 }
 
-
 class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var myTableView: UITableView!
@@ -36,15 +35,10 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "fpccell", for: indexPath) as! FPCCell
         
         let rest = restList[indexPath.row]
-        
         cell.restnameLabel.text = rest.name
-        
         cell.distanceLabel.text = String(rest.distance) + "m"
-        
         cell.station.text = String(rest.access.station)
-        
         cell.budget.text = "平均予算:" + String(rest.budget) + "円"
-        
         
         let image = rest.image_url.shop_image1
         
@@ -77,18 +71,3 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
 }
-
-extension UIImage {
-    public convenience init(url: String) {
-        let url = URL(string: url)
-        do {
-            let data = try Data(contentsOf: url!)
-            self.init(data: data)!
-            return
-        } catch let err {
-            print("Error : \(err.localizedDescription)")
-        }
-        self.init()
-    }
-}
-

@@ -15,18 +15,18 @@ protocol RestMapDelegate {
 }
 
 class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestMapDelegate{
-
-    func selectAnnotation(index: Int) {
-        dispMap.selectAnnotation(annotations[index], animated: true)
-    }
     
     @IBOutlet weak var dispMap: MKMapView!
+
     var fpc:FloatingPanelController!
-    
     var currentLocation = CLLocation()
     var foodChoise = (String(),String())
     var restList = [Restaurant]()
     var annotations = [RestAnnotation]()
+    
+    func selectAnnotation(index: Int) {
+        dispMap.selectAnnotation(annotations[index], animated: true)
+    }
     
     @IBAction func locationButton(_ sender: Any) {
         let locManager = CLLocationManager()
@@ -70,7 +70,6 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         dispMap.delegate = self
-        
      }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -130,29 +129,3 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
        }
 }
 
-class RestAnnotation: NSObject,MKAnnotation{
-    var title: String?
-    var coordinate: CLLocationCoordinate2D
-    var rest:Restaurant
-    
-    override init(){
-        self.title = String()
-        self.coordinate = CLLocationCoordinate2D()
-        self.rest = Restaurant()
-    }
-}
-
-class MyFloatingPanelLayout: FloatingPanelLayout {
-    public var initialPosition: FloatingPanelPosition {
-        return .half
-    }
-
-    public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
-        switch position {
-            case .full: return 16.0 // A top inset from safe area
-            case .half: return 216.0 // A bottom inset from the safe area
-            case .tip: return 44.0 // A bottom inset from the safe area
-            default: return nil // Or `case .hidden: return nil`
-        }
-    }
-}
