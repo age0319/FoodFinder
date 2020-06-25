@@ -23,6 +23,12 @@ class Restaurant {
     var location:CLLocation
     var distance:Double
     
+    var category:String
+    var address:String
+    var tel:String
+    var holiday:String
+    var pr:PRClass
+    
     init() {
         self.id = Int()
         self.name = String()
@@ -35,9 +41,15 @@ class Restaurant {
         self.budget = Int()
         self.location = CLLocation()
         self.distance = Double()
+        
+        self.category = String()
+        self.address = String()
+        self.tel = String()
+        self.holiday = String()
+        self.pr = PRClass()
     }
     
-    func set(id:Int,name:String,latitude:String,longitude:String,url:String,image_url:ImageClass,opentime:String,access:AccessClass,budget:Int){
+    func set(id:Int,name:String,latitude:String,longitude:String,url:String,image_url:ImageClass,opentime:String,access:AccessClass,budget:Int,category:String,address:String,tel:String,holiday:String,pr:PRClass){
         self.id = id
         self.name = name
         self.latitude = latitude
@@ -53,11 +65,27 @@ class Restaurant {
                 self.location = CLLocation(latitude: lat, longitude: lon)
             }
         }
+        
+        self.category = category
+        self.address = address
+        self.holiday = holiday
+        self.pr = pr
+        
     }
     
     func setDistance(loc:CLLocation){       
         self.distance = loc.distance(from: self.location)
         self.distance.round()
+    }
+}
+
+class PRClass {
+    var pr_short:String
+    var pr_long:String
+    
+    init(){
+        self.pr_short = String()
+        self.pr_long = String()
     }
 }
 

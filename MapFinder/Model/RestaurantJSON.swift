@@ -25,6 +25,12 @@ struct Rest:Codable {
     let access:Access
     let budget:Int
     
+    let category:String
+    let address:String
+    let tel:String
+    let holiday:String
+    let pr:PR
+    
     private enum CodingKeys : String, CodingKey {
         case name
         case latitude
@@ -34,6 +40,11 @@ struct Rest:Codable {
         case opentime
         case access
         case budget
+        case category
+        case address
+        case tel
+        case holiday
+        case pr
      }
 
      init(from decoder: Decoder) throws {
@@ -51,7 +62,18 @@ struct Rest:Codable {
         let budgetString = try? container.decode(String.self, forKey: .budget)
         
         self.budget = budgetInt ?? (budgetString == "" ? 0 : 0)
+        
+        self.category = try container.decode(String.self, forKey: .category)
+        self.address = try container.decode(String.self, forKey: .address)
+        self.tel = try container.decode(String.self, forKey: .tel)
+        self.holiday = try container.decode(String.self, forKey: .holiday)
+        self.pr = try container.decode(PR.self, forKey: .pr)
      }
+}
+
+struct PR:Codable {
+    let pr_short:String
+    let pr_long:String
 }
 
 struct Image:Codable {

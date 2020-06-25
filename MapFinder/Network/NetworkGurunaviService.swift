@@ -94,8 +94,12 @@ class NetworkGurunaviService {
                 access.station_exit = shop.access.station_exit
                 access.walk = shop.access.walk
                 
+                let pr = PRClass()
+                pr.pr_short = shop.pr.pr_short
+                pr.pr_long = shop.pr.pr_long
+                
                 if (shop.latitude.isEmpty == false && shop.longitude.isEmpty == false){
-                    rest.set(id:id,name: shop.name, latitude: shop.latitude, longitude: shop.longitude, url: shop.url, image_url: image, opentime: shop.opentime, access: access, budget: shop.budget)
+                    rest.set(id:id,name: shop.name, latitude: shop.latitude, longitude: shop.longitude, url: shop.url, image_url: image, opentime: shop.opentime, access: access, budget: shop.budget,category: shop.category,address: shop.address,tel: shop.tel,holiday: shop.holiday,pr: pr)
                     restList.append(rest)
                     id += 1
                 }

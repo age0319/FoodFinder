@@ -94,7 +94,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="予算" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-uV-XhL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均予算" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-uV-XhL">
                                                     <rect key="frame" x="190" y="37" width="120" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="Mwa-OB-Vcs"/>
@@ -130,6 +130,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ILB-kw-jPE" firstAttribute="trailing" secondItem="evf-tk-hYV" secondAttribute="trailing" id="HVd-Le-GyX"/>
                             <constraint firstItem="evf-tk-hYV" firstAttribute="leading" secondItem="ILB-kw-jPE" secondAttribute="leading" id="qd0-uW-yQF"/>
@@ -154,7 +155,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お店名" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-tv-QRt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お店の名前" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-tv-QRt">
                                 <rect key="frame" x="10" y="94" width="394" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -203,28 +204,128 @@
                                     <segue destination="g02-rm-4hh" kind="show" id="7Rt-zh-z1t"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最寄駅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKa-Wc-0Ch">
+                                <rect key="frame" x="10" y="300" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgY-D0-lfM">
+                                <rect key="frame" x="10" y="328" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均予算" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G40-Qj-OAo">
+                                <rect key="frame" x="10" y="356" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="営業時間" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCO-FA-DNk">
+                                <rect key="frame" x="10" y="384" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAT-Rs-3k5">
+                                <rect key="frame" x="10" y="412" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話番号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9S6-QA-kae">
+                                <rect key="frame" x="10" y="440" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住所" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjy-uE-In9">
+                                <rect key="frame" x="10" y="468" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="休業日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPb-td-11S">
+                                <rect key="frame" x="10" y="496" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PR" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn1-Io-VQf">
+                                <rect key="frame" x="10" y="524" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距離" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISM-Tm-oXZ">
+                                <rect key="frame" x="10" y="272" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="pn1-Io-VQf" secondAttribute="trailing" constant="10" id="9E2-li-AYQ"/>
+                            <constraint firstItem="QPb-td-11S" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="By6-SE-bAH"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="QPb-td-11S" secondAttribute="trailing" constant="10" id="CEy-h4-jx7"/>
                             <constraint firstItem="gxO-tv-QRt" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="CRu-9x-oE9"/>
                             <constraint firstItem="31Q-yw-KyN" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Cae-SJ-Nfw"/>
+                            <constraint firstItem="XgY-D0-lfM" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="DdL-j4-fjD"/>
+                            <constraint firstItem="SAT-Rs-3k5" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Gks-vT-UeY"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="XgY-D0-lfM" secondAttribute="trailing" constant="10" id="Gqp-nL-Hlr"/>
+                            <constraint firstItem="CCO-FA-DNk" firstAttribute="top" secondItem="G40-Qj-OAo" secondAttribute="bottom" constant="10" id="KSf-N2-f4p"/>
+                            <constraint firstItem="bjy-uE-In9" firstAttribute="top" secondItem="9S6-QA-kae" secondAttribute="bottom" constant="10" id="MTa-LN-AcU"/>
                             <constraint firstItem="6tE-5c-zI6" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="OFd-EQ-x3e"/>
+                            <constraint firstItem="LKa-Wc-0Ch" firstAttribute="top" secondItem="ISM-Tm-oXZ" secondAttribute="bottom" constant="10" id="Qat-yE-MbR"/>
+                            <constraint firstItem="QPb-td-11S" firstAttribute="top" secondItem="bjy-uE-In9" secondAttribute="bottom" constant="10" id="RZY-oU-a3Z"/>
+                            <constraint firstItem="CCO-FA-DNk" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Rzt-nU-7bY"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="ISM-Tm-oXZ" secondAttribute="trailing" constant="10" id="TUt-oo-gvD"/>
+                            <constraint firstItem="pn1-Io-VQf" firstAttribute="top" secondItem="QPb-td-11S" secondAttribute="bottom" constant="10" id="WBd-uk-DwT"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="CCO-FA-DNk" secondAttribute="trailing" constant="10" id="Wav-f1-akW"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="9S6-QA-kae" secondAttribute="trailing" constant="10" id="XDe-l4-7cQ"/>
+                            <constraint firstItem="ISM-Tm-oXZ" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="aMV-8d-qkK"/>
+                            <constraint firstItem="ISM-Tm-oXZ" firstAttribute="top" secondItem="31Q-yw-KyN" secondAttribute="bottom" constant="50" id="aV5-cn-Qkw"/>
+                            <constraint firstItem="9S6-QA-kae" firstAttribute="top" secondItem="SAT-Rs-3k5" secondAttribute="bottom" constant="10" id="cW5-ZG-kdh"/>
                             <constraint firstItem="gxO-tv-QRt" firstAttribute="top" secondItem="XT4-d2-Hma" secondAttribute="top" constant="50" id="dRA-aY-0dk"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="LKa-Wc-0Ch" secondAttribute="trailing" constant="10" id="e8b-9a-q74"/>
+                            <constraint firstItem="SAT-Rs-3k5" firstAttribute="top" secondItem="CCO-FA-DNk" secondAttribute="bottom" constant="10" id="f5e-c3-Bo6"/>
                             <constraint firstItem="W1I-SM-orq" firstAttribute="leading" secondItem="31Q-yw-KyN" secondAttribute="trailing" constant="10" id="fdD-5X-EBW"/>
+                            <constraint firstItem="XgY-D0-lfM" firstAttribute="top" secondItem="LKa-Wc-0Ch" secondAttribute="bottom" constant="10" id="ftW-kF-b7h"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="G40-Qj-OAo" secondAttribute="trailing" constant="10" id="hrM-dh-qzk"/>
+                            <constraint firstItem="G40-Qj-OAo" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="iz2-ik-sji"/>
                             <constraint firstItem="31Q-yw-KyN" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="kSX-Hu-606"/>
+                            <constraint firstItem="G40-Qj-OAo" firstAttribute="top" secondItem="XgY-D0-lfM" secondAttribute="bottom" constant="10" id="kp6-9C-UTr"/>
+                            <constraint firstItem="pn1-Io-VQf" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="nJ7-Qh-Piq"/>
                             <constraint firstItem="W1I-SM-orq" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="oEe-z1-QSD"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="bjy-uE-In9" secondAttribute="trailing" constant="10" id="oZq-Oq-pJV"/>
                             <constraint firstItem="YEw-zT-OLz" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="10" id="ugj-rG-cw0"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="gxO-tv-QRt" secondAttribute="trailing" constant="10" id="vDk-Ba-Xzv"/>
+                            <constraint firstItem="LKa-Wc-0Ch" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="vPf-CQ-tw1"/>
+                            <constraint firstItem="bjy-uE-In9" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="x6l-ZB-Pqp"/>
                             <constraint firstItem="YEw-zT-OLz" firstAttribute="top" secondItem="6tE-5c-zI6" secondAttribute="bottom" constant="10" id="xGH-xu-f9c"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="SAT-Rs-3k5" secondAttribute="trailing" constant="10" id="xOR-Cw-wza"/>
+                            <constraint firstItem="9S6-QA-kae" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="ydM-An-ERj"/>
                             <constraint firstItem="6tE-5c-zI6" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="10" id="zD8-Hm-glL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XT4-d2-Hma"/>
                     </view>
                     <connections>
+                        <outlet property="address" destination="bjy-uE-In9" id="84q-7A-ZbN"/>
+                        <outlet property="budget" destination="G40-Qj-OAo" id="ePU-AV-ZPr"/>
+                        <outlet property="category" destination="SAT-Rs-3k5" id="62K-nF-v1E"/>
+                        <outlet property="distance" destination="ISM-Tm-oXZ" id="Zhz-rB-azJ"/>
+                        <outlet property="holiday" destination="QPb-td-11S" id="eb2-Md-vWH"/>
                         <outlet property="image1" destination="31Q-yw-KyN" id="eta-HU-awf"/>
                         <outlet property="image2" destination="W1I-SM-orq" id="thE-Zt-94i"/>
+                        <outlet property="line" destination="XgY-D0-lfM" id="yr6-Qo-f3L"/>
+                        <outlet property="opentime" destination="CCO-FA-DNk" id="DAI-SN-smV"/>
+                        <outlet property="pr" destination="pn1-Io-VQf" id="2ix-RT-If5"/>
                         <outlet property="routeButton" destination="6tE-5c-zI6" id="JkW-Sj-X3U"/>
                         <outlet property="shopname" destination="gxO-tv-QRt" id="Lhm-z9-eud"/>
+                        <outlet property="station" destination="LKa-Wc-0Ch" id="8XI-uL-eG0"/>
+                        <outlet property="tel" destination="9S6-QA-kae" id="KLs-ta-cJo"/>
                         <outlet property="webButton" destination="YEw-zT-OLz" id="BwV-bx-ogq"/>
                     </connections>
                 </viewController>
