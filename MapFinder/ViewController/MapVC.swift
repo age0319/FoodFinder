@@ -76,6 +76,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         }
     }
     
+    // レストラン検索ボタンが押された時に呼ばれる
     @IBAction func searchButton(_ sender: Any) {
         
         let allAnnotations = self.dispMap.annotations
@@ -109,7 +110,8 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
      }
     
     override func viewWillDisappear(_ animated: Bool) {
-        fpc.removePanelFromParent(animated: false)
+        removeSemiModal()
+        self.dispMap.removeAnnotations(annotations)
         annotations.removeAll()
     }
     
@@ -133,7 +135,9 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     
     //ピンが選択解除された時に呼ばれる
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        self.dispMap.removeOverlay(self.route.polyline)
+        if self.route != nil{
+            self.dispMap.removeOverlay(self.route.polyline)
+        }
         removeSemiModal()
         showSemiModal(restList: restList,storyBoardID: "all")
     }
