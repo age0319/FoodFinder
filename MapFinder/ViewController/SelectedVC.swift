@@ -15,9 +15,23 @@ class SelectedVC:UIViewController{
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
     var shop:Restaurant!
+    var delegate:RestMapDelegate?
+    @IBOutlet weak var routeButton: RoundButton!
+    @IBOutlet weak var webButton: UIButton!
+    
+    @IBAction func onRoute(_ sender: Any) {
+        delegate?.showRoute(dest: shop.location)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        routeButton.layer.cornerRadius = 10
+        routeButton.layer.borderWidth = 1
+        routeButton.layer.borderColor = UIColor.link.cgColor
+        
+        webButton.layer.cornerRadius = 10
+        webButton.layer.borderWidth = 1
+        webButton.layer.borderColor = UIColor.link.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {

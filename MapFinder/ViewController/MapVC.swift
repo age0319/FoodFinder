@@ -12,6 +12,7 @@ import FloatingPanel
 
 protocol RestMapDelegate {
     func selectAnnotation(index:Int)
+    func showRoute(dest:CLLocation)
 }
 
 class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestMapDelegate{
@@ -23,6 +24,40 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     var foodChoise = (String(),String())
     var restList = [Restaurant]()
     var annotations = [RestAnnotation]()
+    var route:MKRoute!
+    
+    func showRoute(dest: CLLocation) {
+        let sourcePlaceMark = MKPlacemark(coordinate: currentLocation.coordinate)
+        let destinationPlaceMark = MKPlacemark(coordinate: dest.coordinate)
+          
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
+        directionRequest.transportType = .walking
+
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate { (response, error) in
+        guard let directionResonse = response else {
+            if let error = error {
+                    print("we have error getting directions==\(error.localizedDescription)")
+            }
+                return
+            }
+            let route = directionResonse.routes[0]
+            self.route = route
+            self.dispMap.addOverlay(route.polyline, level: .aboveRoads)
+            let time = route.expectedTravelTime / 60
+            self.showToast(message: "所要時間は「" + String(time.rounded()) + "」分です。", font: .systemFont(ofSize: 12.0))
+           }
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 4.0
+        return renderer
+    }
     
     func selectAnnotation(index: Int) {
         dispMap.selectAnnotation(annotations[index], animated: true)
@@ -57,6 +92,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
             }
             self.restList = self.calcDistance(restList: restList)
             self.showSemiModal(restList: self.restList,storyBoardID: "all")
+            self.showToast(message: "「" + String(restList.count) + "」件見つかりました。", font: .systemFont(ofSize: 12.0))
         })
     }
     
@@ -86,6 +122,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         self.dispMap.addAnnotation(pin)
     }
     
+    // ピンが選択された時に呼ばれる
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         removeSemiModal()
         if let annotation = view.annotation as? RestAnnotation {
@@ -94,7 +131,9 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         
     }
     
+    //ピンが選択解除された時に呼ばれる
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        self.dispMap.removeOverlay(self.route.polyline)
         removeSemiModal()
         showSemiModal(restList: restList,storyBoardID: "all")
     }
@@ -118,6 +157,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: storyBoardID) as? SelectedVC else {
                 return
             }
+            vc.delegate = self
             vc.shop = restList[0]
             fpc.set(contentViewController: vc)
         }
