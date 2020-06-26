@@ -170,7 +170,9 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     }
     
     func removeSemiModal(){
-        fpc.removePanelFromParent(animated: false)
+        if fpc != nil {
+            fpc.removePanelFromParent(animated: false)
+        }
     }
     
     func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {

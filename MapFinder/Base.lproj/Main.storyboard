@@ -459,7 +459,7 @@
             </objects>
             <point key="canvasLocation" x="376.81159420289856" y="521.65178571428567"/>
         </scene>
-        <!--Item-->
+        <!--Category-->
         <scene sceneID="6iG-gE-niH">
             <objects>
                 <collectionViewController id="iLs-HP-B58" customClass="CollectionViewController" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -527,7 +527,7 @@
                             <outlet property="delegate" destination="iLs-HP-B58" id="xVy-Tn-ytx"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Nlu-CU-3Ba"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="star" catalog="system" selectedImage="star.fill" id="Nlu-CU-3Ba"/>
                     <navigationItem key="navigationItem" id="e75-ij-bGu"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9B-qa-wPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -538,7 +538,7 @@
         <scene sceneID="0Ct-0C-Esk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G2a-cz-nNh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="heart" catalog="system" id="3ux-WP-iVn"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="heart" catalog="system" selectedImage="heart.fill" id="3ux-WP-iVn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yFj-Dx-mW9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -557,7 +557,7 @@
         <scene sceneID="za0-6J-539">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Psn-8F-Uwf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="Phr-0q-zeZ"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map.fill" id="Phr-0q-zeZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KfS-AK-UEX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -576,9 +576,13 @@
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
+        <image name="map.fill" catalog="system" width="128" height="113"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>
