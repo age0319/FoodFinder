@@ -73,7 +73,7 @@ class SelectedVC:UIViewController{
         tel.text = "TEL:" + shop.tel
         address.text = "住所:" + shop.address
         holiday.text = "休業日:" + shop.holiday
-        pr.text = shop.pr.pr_short
+        pr.text = "PR:" + shop.pr.pr_short
 
     }
     

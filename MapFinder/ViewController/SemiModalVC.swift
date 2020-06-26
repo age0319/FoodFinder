@@ -38,7 +38,7 @@ class SemiModalVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.restnameLabel.text = rest.name
         cell.distanceLabel.text = String(rest.distance) + "m"
         cell.station.text = String(rest.access.station)
-        cell.budget.text = "平均予算:" + String(rest.budget) + "円"
+        cell.budget.text = String(rest.budget) + "円"
         
         let image = rest.image_url.shop_image1
         

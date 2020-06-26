@@ -53,7 +53,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     }
     
     func showMe(shop: Restaurant) {
-        let regionDistance:CLLocationDistance = 1000;
+        let regionDistance:CLLocationDistance = 1000
         let loc = shop.location.coordinate
         let coordinates = CLLocationCoordinate2DMake(loc.latitude, loc.longitude)
         let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
