@@ -177,30 +177,31 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tE-5c-zI6" customClass="RoundButton" customModule="FoodFinder" customModuleProvider="target">
-                                <rect key="frame" x="230" y="122" width="80" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="zkT-9n-TuY"/>
-                                </constraints>
-                                <state key="normal" title="経路" image="info.circle" catalog="system">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="230" y="132" width="174" height="34"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="経路">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onRoute:" destination="AKZ-jm-kfx" eventType="touchUpInside" id="C67-eh-5h8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEw-zT-OLz">
-                                <rect key="frame" x="230" y="154" width="80" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="1le-CN-qOC"/>
-                                </constraints>
-                                <state key="normal" title="Web" image="globe" catalog="system">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEw-zT-OLz" customClass="RoundButton" customModule="FoodFinder" customModuleProvider="target">
+                                <rect key="frame" x="230" y="176" width="174" height="34"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Web">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="g02-rm-4hh" kind="show" id="7Rt-zh-z1t"/>
                                 </connections>
@@ -268,6 +269,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6tE-5c-zI6" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="10" id="3Nj-mt-fzd"/>
+                            <constraint firstItem="6tE-5c-zI6" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="20" id="5wu-9c-qGT"/>
+                            <constraint firstItem="YEw-zT-OLz" firstAttribute="top" secondItem="6tE-5c-zI6" secondAttribute="bottom" constant="10" id="5xd-QY-Axu"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="pn1-Io-VQf" secondAttribute="trailing" constant="10" id="9E2-li-AYQ"/>
                             <constraint firstItem="QPb-td-11S" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="By6-SE-bAH"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="QPb-td-11S" secondAttribute="trailing" constant="10" id="CEy-h4-jx7"/>
@@ -277,8 +281,8 @@
                             <constraint firstItem="SAT-Rs-3k5" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Gks-vT-UeY"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="XgY-D0-lfM" secondAttribute="trailing" constant="10" id="Gqp-nL-Hlr"/>
                             <constraint firstItem="CCO-FA-DNk" firstAttribute="top" secondItem="G40-Qj-OAo" secondAttribute="bottom" constant="10" id="KSf-N2-f4p"/>
+                            <constraint firstItem="YEw-zT-OLz" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="10" id="LxZ-hl-bpd"/>
                             <constraint firstItem="bjy-uE-In9" firstAttribute="top" secondItem="9S6-QA-kae" secondAttribute="bottom" constant="10" id="MTa-LN-AcU"/>
-                            <constraint firstItem="6tE-5c-zI6" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="OFd-EQ-x3e"/>
                             <constraint firstItem="LKa-Wc-0Ch" firstAttribute="top" secondItem="ISM-Tm-oXZ" secondAttribute="bottom" constant="10" id="Qat-yE-MbR"/>
                             <constraint firstItem="QPb-td-11S" firstAttribute="top" secondItem="bjy-uE-In9" secondAttribute="bottom" constant="10" id="RZY-oU-a3Z"/>
                             <constraint firstItem="CCO-FA-DNk" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="Rzt-nU-7bY"/>
@@ -297,18 +301,17 @@
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="G40-Qj-OAo" secondAttribute="trailing" constant="10" id="hrM-dh-qzk"/>
                             <constraint firstItem="G40-Qj-OAo" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="iz2-ik-sji"/>
                             <constraint firstItem="31Q-yw-KyN" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="kSX-Hu-606"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="YEw-zT-OLz" secondAttribute="trailing" constant="10" id="kk5-y2-eaQ"/>
                             <constraint firstItem="G40-Qj-OAo" firstAttribute="top" secondItem="XgY-D0-lfM" secondAttribute="bottom" constant="10" id="kp6-9C-UTr"/>
                             <constraint firstItem="pn1-Io-VQf" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="nJ7-Qh-Piq"/>
                             <constraint firstItem="W1I-SM-orq" firstAttribute="top" secondItem="gxO-tv-QRt" secondAttribute="bottom" constant="10" id="oEe-z1-QSD"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="bjy-uE-In9" secondAttribute="trailing" constant="10" id="oZq-Oq-pJV"/>
-                            <constraint firstItem="YEw-zT-OLz" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="10" id="ugj-rG-cw0"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="gxO-tv-QRt" secondAttribute="trailing" constant="10" id="vDk-Ba-Xzv"/>
                             <constraint firstItem="LKa-Wc-0Ch" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="vPf-CQ-tw1"/>
                             <constraint firstItem="bjy-uE-In9" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="x6l-ZB-Pqp"/>
-                            <constraint firstItem="YEw-zT-OLz" firstAttribute="top" secondItem="6tE-5c-zI6" secondAttribute="bottom" constant="10" id="xGH-xu-f9c"/>
                             <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="SAT-Rs-3k5" secondAttribute="trailing" constant="10" id="xOR-Cw-wza"/>
+                            <constraint firstItem="XT4-d2-Hma" firstAttribute="trailing" secondItem="6tE-5c-zI6" secondAttribute="trailing" constant="10" id="xvy-6p-Chw"/>
                             <constraint firstItem="9S6-QA-kae" firstAttribute="leading" secondItem="XT4-d2-Hma" secondAttribute="leading" constant="10" id="ydM-An-ERj"/>
-                            <constraint firstItem="6tE-5c-zI6" firstAttribute="leading" secondItem="W1I-SM-orq" secondAttribute="trailing" constant="10" id="zD8-Hm-glL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XT4-d2-Hma"/>
                     </view>
@@ -574,10 +577,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>

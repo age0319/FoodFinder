@@ -30,7 +30,8 @@ class SelectedVC:UIViewController{
     @IBOutlet weak var pr: UILabel!
     
     @IBAction func onRoute(_ sender: Any) {
-        delegate?.showRoute(dest: shop.location)
+//        delegate?.showRoute(dest: shop.location)
+        delegate?.showMe(shop:shop)
     }
     
     override func viewDidLoad() {

@@ -13,6 +13,7 @@ import FloatingPanel
 protocol RestMapDelegate {
     func selectAnnotation(index:Int)
     func showRoute(dest:CLLocation)
+    func showMe(shop:Restaurant)
 }
 
 class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestMapDelegate{
@@ -51,6 +52,19 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
            }
     }
     
+    func showMe(shop: Restaurant) {
+        let regionDistance:CLLocationDistance = 1000;
+        let loc = shop.location.coordinate
+        let coordinates = CLLocationCoordinate2DMake(loc.latitude, loc.longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+
+        let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+
+        let placemark = MKPlacemark(coordinate: coordinates)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = shop.name
+        mapItem.openInMaps(launchOptions: options)
+    }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
@@ -104,14 +118,15 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         return restList
     }
     
+    // viewのライフイベント
     override func viewDidLoad() {
         super.viewDidLoad()
         dispMap.delegate = self
      }
     
     override func viewWillDisappear(_ animated: Bool) {
-        removeSemiModal()
         self.dispMap.removeAnnotations(annotations)
+        removeSemiModal()
         annotations.removeAll()
     }
     
