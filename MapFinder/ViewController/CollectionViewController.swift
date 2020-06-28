@@ -34,5 +34,9 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(categoryList[indexPath.row])
+        tabBarController?.selectedIndex = 1
+        let navController = tabBarController?.viewControllers![1] as! UINavigationController
+        let mapvc = navController.topViewController as! MapVC
+        mapvc.foodChoise = categoryList[indexPath.row]
     }
 }

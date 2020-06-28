@@ -49,8 +49,10 @@ class NetworkGurunaviService {
         url += "&latitude=" + String(loc.latitude)
         url += "&longitude=" + String(loc.longitude)
         url += "&category_l=" + category.code
+        //一度リクエストで得るレスポンスデータの最大件数（デフォルト:10、上限:100）
         url += "&hit_per_page=" + String(100)
-        url += "&range=" + String(3) // 1000m
+        // 1:300m、2:500m、3:1000m、4:2000m、5:3000m
+        url += "&range=" + String(5)
         
         let req_url = URL(string: url)
         let req = URLRequest(url: req_url!)

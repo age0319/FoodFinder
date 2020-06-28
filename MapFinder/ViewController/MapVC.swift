@@ -12,7 +12,6 @@ import FloatingPanel
 
 protocol RestMapDelegate {
     func selectAnnotation(index:Int)
-    func showRoute(dest:CLLocation)
     func showMe(shop:Restaurant)
 }
 
@@ -21,36 +20,10 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     @IBOutlet weak var dispMap: MKMapView!
 
     var fpc:FloatingPanelController!
-    var currentLocation = CLLocation()
-    var foodChoise = (String(),String())
+    var currentLocation:CLLocation?
+    var foodChoise = (code:String(),name:String())
     var restList = [Restaurant]()
     var annotations = [RestAnnotation]()
-    var route:MKRoute!
-    
-    func showRoute(dest: CLLocation) {
-        let sourcePlaceMark = MKPlacemark(coordinate: currentLocation.coordinate)
-        let destinationPlaceMark = MKPlacemark(coordinate: dest.coordinate)
-          
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
-        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
-        directionRequest.transportType = .walking
-
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate { (response, error) in
-        guard let directionResonse = response else {
-            if let error = error {
-                    print("we have error getting directions==\(error.localizedDescription)")
-            }
-                return
-            }
-            let route = directionResonse.routes[0]
-            self.route = route
-            self.dispMap.addOverlay(route.polyline, level: .aboveRoads)
-            let time = route.expectedTravelTime / 60
-            self.showToast(message: "所要時間は「" + String(time.rounded()) + "」分です。", font: .systemFont(ofSize: 12.0))
-           }
-    }
     
     func showMe(shop: Restaurant) {
         let regionDistance:CLLocationDistance = 1000
@@ -93,27 +66,39 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     // レストラン検索ボタンが押された時に呼ばれる
     @IBAction func searchButton(_ sender: Any) {
         
-        let allAnnotations = self.dispMap.annotations
-        self.dispMap.removeAnnotations(allAnnotations)
+        if dispMap.annotations.count > 0{
+            let allAnnotations = self.dispMap.annotations
+            self.dispMap.removeAnnotations(allAnnotations)
+        }
         
-        let handler = NetworkGurunaviService()
-        handler.searchAroundVenue(loc: self.currentLocation.coordinate, category: self.foodChoise, completion: {(restList) in
-            
-            for rest in restList{
-                let lat = Double(rest.latitude)
-                let long = Double(rest.longitude)
-                let location = CLLocation(latitude: lat!, longitude: long!)
-                self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
-            }
-            self.restList = self.calcDistance(restList: restList)
-            self.showSemiModal(restList: self.restList,storyBoardID: "all")
-            self.showToast(message: "「" + String(restList.count) + "」件見つかりました。", font: .systemFont(ofSize: 12.0))
-        })
+        if let now = currentLocation{
+            let handler = NetworkGurunaviService()
+            handler.searchAroundVenue(loc: now.coordinate, category: self.foodChoise, completion: {(restList) in
+                
+                if restList.count > 0 {
+                    for rest in restList{
+                        if let lat = Double(rest.latitude){
+                            if let long = Double(rest.longitude){
+                                let location = CLLocation(latitude: lat, longitude: long)
+                                self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
+                            }
+                        }
+                    }
+                    self.restList = self.calcDistance(restList: restList)
+                    self.showSemiModal(restList: self.restList,storyBoardID: "all")
+                    self.showToast(message: "「" + String(restList.count) + "」件見つかりました。", font: .systemFont(ofSize: 12.0))
+                }else{
+                    self.showToast(message: "お店は一件も見つかりませんでした。", font: .systemFont(ofSize: 12.0))
+                }
+            })
+        }else{
+            showToast(message: "位置情報を設定してください。", font: .systemFont(ofSize: 12.0))
+        }
     }
     
     func calcDistance(restList:[Restaurant]) -> [Restaurant]{
         for rest in restList{
-            rest.setDistance(loc: currentLocation)
+            rest.setDistance(loc: currentLocation!)
         }
         return restList
     }
@@ -123,11 +108,22 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         super.viewDidLoad()
         dispMap.delegate = self
      }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         self.dispMap.removeAnnotations(annotations)
-        removeSemiModal()
         annotations.removeAll()
+        removeSemiModal()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let message:String
+        if foodChoise.name .isEmpty{
+            message = "カテゴリを選択してください。"
+        }else{
+            message = foodChoise.name + "を検索します。"
+        }
+    
+        showToast(message: message, font: .systemFont(ofSize: 12.0))
     }
     
     func setRestPin(loc:CLLocationCoordinate2D,title:String,rest:Restaurant){
@@ -150,9 +146,6 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     
     //ピンが選択解除された時に呼ばれる
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if self.route != nil{
-            self.dispMap.removeOverlay(self.route.polyline)
-        }
         removeSemiModal()
         showSemiModal(restList: restList,storyBoardID: "all")
     }

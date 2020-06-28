@@ -23,7 +23,6 @@
 		4959A2A42498ABD700EA4EB1 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A32498ABD700EA4EB1 /* RoundButton.swift */; };
 		4959A2A62499AED800EA4EB1 /* NetworkFourSquareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A52499AED800EA4EB1 /* NetworkFourSquareService.swift */; };
 		4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2A72499B26900EA4EB1 /* Utility.swift */; };
-		4959A2AC2499DEA900EA4EB1 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */; };
 		4959A2AE2499F79A00EA4EB1 /* NetworkGurunaviService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */; };
 		4998D768249D8B10002907BD /* SemiModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D767249D8B10002907BD /* SemiModalVC.swift */; };
 		4998D76A249EEB70002907BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D769249EEB70002907BD /* Restaurant.swift */; };
@@ -53,7 +52,6 @@
 		4959A2A32498ABD700EA4EB1 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		4959A2A52499AED800EA4EB1 /* NetworkFourSquareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFourSquareService.swift; sourceTree = "<group>"; };
 		4959A2A72499B26900EA4EB1 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		4959A2AD2499F79A00EA4EB1 /* NetworkGurunaviService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGurunaviService.swift; sourceTree = "<group>"; };
 		4998D767249D8B10002907BD /* SemiModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalVC.swift; sourceTree = "<group>"; };
 		4998D769249EEB70002907BD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				4959A28F2496DEA400EA4EB1 /* MapVC.swift */,
-				4959A2AB2499DEA900EA4EB1 /* SettingVC.swift */,
 				4998D767249D8B10002907BD /* SemiModalVC.swift */,
 				49228B2124A325A100CBB1C5 /* MyFloatingPanelLayout.swift */,
 				49228B2324A3583A00CBB1C5 /* SelectedVC.swift */,
@@ -279,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4959A2A82499B26900EA4EB1 /* Utility.swift in Sources */,
-				4959A2AC2499DEA900EA4EB1 /* SettingVC.swift in Sources */,
 				49228B2A24A5593C00CBB1C5 /* CollectionViewCell.swift in Sources */,
 				4959A2A22497472500EA4EB1 /* RestaurantJSON.swift in Sources */,
 				4959A2AE2499F79A00EA4EB1 /* NetworkGurunaviService.swift in Sources */,

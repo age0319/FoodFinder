@@ -8,44 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--食べたい物-->
-        <scene sceneID="s5Z-fh-aBg">
-            <objects>
-                <viewController id="cil-Kj-DS3" customClass="SettingVC" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Dkv-UM-tj0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-ax-fM7">
-                                <rect key="frame" x="0.0" y="188.5" width="414" height="216"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食べたい物を選択してね。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPT-YM-stL">
-                                <rect key="frame" x="40" y="128" width="334" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="xVG-er-5dX" firstAttribute="trailing" secondItem="JPT-YM-stL" secondAttribute="trailing" constant="40" id="1vt-PE-FgD"/>
-                            <constraint firstItem="JjF-ax-fM7" firstAttribute="top" secondItem="JPT-YM-stL" secondAttribute="bottom" constant="40" id="6JO-gV-9sD"/>
-                            <constraint firstItem="JjF-ax-fM7" firstAttribute="trailing" secondItem="xVG-er-5dX" secondAttribute="trailing" id="B8a-Xk-vaL"/>
-                            <constraint firstItem="JPT-YM-stL" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" constant="40" id="UtS-sL-7Jt"/>
-                            <constraint firstItem="JjF-ax-fM7" firstAttribute="leading" secondItem="xVG-er-5dX" secondAttribute="leading" id="amU-DU-Dql"/>
-                            <constraint firstItem="JPT-YM-stL" firstAttribute="top" secondItem="xVG-er-5dX" secondAttribute="top" constant="40" id="dKF-m6-UR0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="xVG-er-5dX"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="食べたい物" id="IvM-xP-pje"/>
-                    <connections>
-                        <outlet property="pickerView" destination="JjF-ax-fM7" id="nkA-rh-Gqi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aAH-yW-XXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="376.81159420289856" y="-156.02678571428569"/>
-        </scene>
         <!--Semi ModalVC-->
         <scene sceneID="XMQ-wt-X3W">
             <objects>
@@ -372,8 +334,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="iLs-HP-B58" kind="relationship" relationship="viewControllers" id="x21-V2-naG"/>
-                        <segue destination="G2a-cz-nNh" kind="relationship" relationship="viewControllers" id="8eP-6f-eW2"/>
+                        <segue destination="fPm-ei-MIY" kind="relationship" relationship="viewControllers" id="x21-V2-naG"/>
                         <segue destination="Psn-8F-Uwf" kind="relationship" relationship="viewControllers" id="fhs-ay-mmv"/>
                     </connections>
                 </tabBarController>
@@ -452,7 +413,7 @@
             </objects>
             <point key="canvasLocation" x="376.81159420289856" y="521.65178571428567"/>
         </scene>
-        <!--Category-->
+        <!--Collection View Controller-->
         <scene sceneID="6iG-gE-niH">
             <objects>
                 <collectionViewController id="iLs-HP-B58" customClass="CollectionViewController" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -478,9 +439,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzQ-at-yWx">
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzQ-at-yWx">
                                             <rect key="frame" x="5" y="70" width="170" height="40"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -520,31 +481,11 @@
                             <outlet property="delegate" destination="iLs-HP-B58" id="xVy-Tn-ytx"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Category" image="star" catalog="system" selectedImage="star.fill" id="Nlu-CU-3Ba"/>
                     <navigationItem key="navigationItem" id="e75-ij-bGu"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9B-qa-wPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-549.27536231884062" y="-837.05357142857144"/>
-        </scene>
-        <!--Setting-->
-        <scene sceneID="0Ct-0C-Esk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G2a-cz-nNh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="heart" catalog="system" selectedImage="heart.fill" id="3ux-WP-iVn"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yFj-Dx-mW9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cil-Kj-DS3" kind="relationship" relationship="rootViewController" id="FAe-kN-xQ7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Y8-kQ-PQp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-533.33333333333337" y="-156.02678571428569"/>
+            <point key="canvasLocation" x="376.81159420289856" y="-285.26785714285711"/>
         </scene>
         <!--Map-->
         <scene sceneID="za0-6J-539">
@@ -565,10 +506,27 @@
             </objects>
             <point key="canvasLocation" x="-533.33333333333337" y="521.65178571428567"/>
         </scene>
+        <!--Category-->
+        <scene sceneID="h2V-EE-vh7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fPm-ei-MIY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Category" image="star" catalog="system" selectedImage="star.fill" id="Nlu-CU-3Ba"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3ab-jd-aPI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iLs-HP-B58" kind="relationship" relationship="rootViewController" id="1aO-cE-1US"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uiL-YS-NwB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-533.33333333333337" y="-285.26785714285711"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>

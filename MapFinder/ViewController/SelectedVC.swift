@@ -30,19 +30,11 @@ class SelectedVC:UIViewController{
     @IBOutlet weak var pr: UILabel!
     
     @IBAction func onRoute(_ sender: Any) {
-//        delegate?.showRoute(dest: shop.location)
         delegate?.showMe(shop:shop)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        routeButton.layer.cornerRadius = 10
-        routeButton.layer.borderWidth = 1
-        routeButton.layer.borderColor = UIColor.link.cgColor
-        
-        webButton.layer.cornerRadius = 10
-        webButton.layer.borderWidth = 1
-        webButton.layer.borderColor = UIColor.link.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
