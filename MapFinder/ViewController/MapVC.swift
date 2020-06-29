@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 import FloatingPanel
+import CoreLocation
 
 protocol RestMapDelegate {
     func selectAnnotation(index:Int)
     func showMe(shop:Restaurant)
 }
 
-class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestMapDelegate{
+class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegate,RestMapDelegate, CLLocationManagerDelegate{
     
     @IBOutlet weak var dispMap: MKMapView!
 
@@ -24,6 +25,7 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     var foodChoise = (code:String(),name:String())
     var restList = [Restaurant]()
     var annotations = [RestAnnotation]()
+    let locationManager = CLLocationManager()
     
     func showMe(shop: Restaurant) {
         let regionDistance:CLLocationDistance = 1000
@@ -51,49 +53,47 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     }
     
     @IBAction func locationButton(_ sender: Any) {
-        let locManager = CLLocationManager()
-        locManager.requestWhenInUseAuthorization()
-
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
-           CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-            guard let currentLocation = locManager.location else { return }
-
-            self.currentLocation = currentLocation
-            dispMap.region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+        if let now = self.currentLocation{
+            dispMap.region = MKCoordinateRegion(center: now.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+        }else{
+            showToast(message: "位置情報を設定してください。", font: .systemFont(ofSize: 12.0))
         }
     }
     
     // レストラン検索ボタンが押された時に呼ばれる
     @IBAction func searchButton(_ sender: Any) {
-        
+        findNearRestaurant()
+    }
+    
+    func findNearRestaurant(){
         if dispMap.annotations.count > 0{
-            let allAnnotations = self.dispMap.annotations
-            self.dispMap.removeAnnotations(allAnnotations)
-        }
-        
-        if let now = currentLocation{
-            let handler = NetworkGurunaviService()
-            handler.searchAroundVenue(loc: now.coordinate, category: self.foodChoise, completion: {(restList) in
-                
-                if restList.count > 0 {
-                    for rest in restList{
-                        if let lat = Double(rest.latitude){
-                            if let long = Double(rest.longitude){
-                                let location = CLLocation(latitude: lat, longitude: long)
-                                self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
-                            }
-                        }
-                    }
-                    self.restList = self.calcDistance(restList: restList)
-                    self.showSemiModal(restList: self.restList,storyBoardID: "all")
-                    self.showToast(message: "「" + String(restList.count) + "」件見つかりました。", font: .systemFont(ofSize: 12.0))
-                }else{
-                    self.showToast(message: "お店は一件も見つかりませんでした。", font: .systemFont(ofSize: 12.0))
-                }
-            })
-        }else{
-            showToast(message: "位置情報を設定してください。", font: .systemFont(ofSize: 12.0))
-        }
+                 let allAnnotations = self.dispMap.annotations
+                 self.dispMap.removeAnnotations(allAnnotations)
+             }
+             
+         if let now = currentLocation{
+             let handler = NetworkGurunaviService()
+             handler.searchAroundVenue(loc: now.coordinate, category: self.foodChoise, completion: {(restList) in
+                 
+                 if restList.count > 0 {
+                     for rest in restList{
+                         if let lat = Double(rest.latitude){
+                             if let long = Double(rest.longitude){
+                                 let location = CLLocation(latitude: lat, longitude: long)
+                                 self.setRestPin(loc: location.coordinate, title: rest.name, rest: rest)
+                             }
+                         }
+                     }
+                     self.restList = self.calcDistance(restList: restList)
+                     self.showSemiModal(restList: self.restList,storyBoardID: "all")
+                     self.showToast(message: "「" + String(restList.count) + "」件見つかりました。", font: .systemFont(ofSize: 12.0))
+                 }else{
+                     self.showToast(message: "お店は一件も見つかりませんでした。", font: .systemFont(ofSize: 12.0))
+                 }
+             })
+         }else{
+             showToast(message: "位置情報を設定してください。", font: .systemFont(ofSize: 12.0))
+         }
     }
     
     func calcDistance(restList:[Restaurant]) -> [Restaurant]{
@@ -107,12 +107,27 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         dispMap.delegate = self
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+       if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
      }
         
     override func viewWillDisappear(_ animated: Bool) {
         self.dispMap.removeAnnotations(annotations)
         annotations.removeAll()
         removeSemiModal()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        self.currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        dispMap.region = MKCoordinateRegion(center: self.currentLocation!.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
