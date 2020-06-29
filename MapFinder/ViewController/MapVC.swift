@@ -127,7 +127,6 @@ class MapVC: UIViewController, MKMapViewDelegate, FloatingPanelControllerDelegat
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         self.currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-        dispMap.region = MKCoordinateRegion(center: self.currentLocation!.coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
