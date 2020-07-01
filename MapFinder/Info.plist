@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>アプリは常に位置情報を取得します</string>
+	<string>アプリは周辺のレストランを検索するために位置情報を取得します</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>アプリ使用中に位置情報を取得します</string>
+	<string>アプリは周辺のレストランを検索するために位置情報を取得します</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
